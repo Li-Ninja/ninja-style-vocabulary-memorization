@@ -21,9 +21,9 @@ module.exports = configure((ctx) => ({
     tsCheckerConfig: {
       eslint: {
         enabled: true,
-        files: './src/**/*.{ts,tsx,js,jsx,vue}',
-      },
-    },
+        files: './src/**/*.{ts,tsx,js,jsx,vue}'
+      }
+    }
   },
 
   // https://v2.quasar.dev/quasar-cli-webpack/prefetch-feature
@@ -38,13 +38,13 @@ module.exports = configure((ctx) => ({
 
   // https://v2.quasar.dev/quasar-cli-webpack/quasar-config-js#Property%3A-css
   css: [
-    'app.scss',
+    'app.scss'
   ],
 
   // https://github.com/quasarframework/quasar/tree/dev/extras
   extras: [
     // 'ionicons-v4',
-    // 'mdi-v5',
+    'mdi-v6',
     // 'fontawesome-v6',
     // 'eva-icons',
     // 'themify',
@@ -52,12 +52,12 @@ module.exports = configure((ctx) => ({
     // 'roboto-font-latin-ext', // this or either 'roboto-font', NEVER both!
 
     'roboto-font', // optional, you are not bound to it
-    'material-icons', // optional, you are not bound to it
+    'material-icons' // optional, you are not bound to it
   ],
 
   // Full list of options: https://v2.quasar.dev/quasar-cli-webpack/quasar-config-js#Property%3A-build
   build: {
-    vueRouterMode: 'hash', // available values: 'hash', 'history'
+    vueRouterMode: 'hash' // available values: 'hash', 'history'
 
     // transpile: false,
     // publicPath: '/',
@@ -84,10 +84,10 @@ module.exports = configure((ctx) => ({
   // Full list of options: https://v2.quasar.dev/quasar-cli-webpack/quasar-config-js#Property%3A-devServer
   devServer: {
     server: {
-      type: 'http',
+      type: 'http'
     },
     port: 8080,
-    open: true, // opens browser window automatically
+    open: true // opens browser window automatically
   },
 
   // https://v2.quasar.dev/quasar-cli-webpack/quasar-config-js#Property%3A-framework
@@ -105,7 +105,7 @@ module.exports = configure((ctx) => ({
     // directives: [],
 
     // Quasar plugins
-    plugins: [],
+    plugins: []
   },
 
   // animations: 'all', // --- includes all animations
@@ -129,8 +129,8 @@ module.exports = configure((ctx) => ({
 
     middlewares: [
       ctx.prod ? 'compression' : '',
-      'render', // keep this as last one
-    ],
+      'render' // keep this as last one
+    ]
   },
 
   // https://v2.quasar.dev/quasar-cli-webpack/developing-pwa/configuring-pwa
@@ -154,30 +154,30 @@ module.exports = configure((ctx) => ({
         {
           src: 'icons/icon-128x128.png',
           sizes: '128x128',
-          type: 'image/png',
+          type: 'image/png'
         },
         {
           src: 'icons/icon-192x192.png',
           sizes: '192x192',
-          type: 'image/png',
+          type: 'image/png'
         },
         {
           src: 'icons/icon-256x256.png',
           sizes: '256x256',
-          type: 'image/png',
+          type: 'image/png'
         },
         {
           src: 'icons/icon-384x384.png',
           sizes: '384x384',
-          type: 'image/png',
+          type: 'image/png'
         },
         {
           src: 'icons/icon-512x512.png',
           sizes: '512x512',
-          type: 'image/png',
-        },
-      ],
-    },
+          type: 'image/png'
+        }
+      ]
+    }
   },
 
   // Full list of options: https://v2.quasar.dev/quasar-cli-webpack/developing-cordova-apps/configuring-cordova
@@ -187,7 +187,7 @@ module.exports = configure((ctx) => ({
 
   // Full list of options: https://v2.quasar.dev/quasar-cli-webpack/developing-capacitor-apps/configuring-capacitor
   capacitor: {
-    hideSplashscreen: true,
+    hideSplashscreen: true
   },
 
   // Full list of options: https://v2.quasar.dev/quasar-cli-webpack/developing-electron-apps/configuring-electron
@@ -210,7 +210,7 @@ module.exports = configure((ctx) => ({
     builder: {
       // https://www.electron.build/configuration/configuration
 
-      appId: 'vocabulary',
+      appId: 'vocabulary'
     },
 
     // "chain" is a webpack-chain object https://github.com/neutrinojs/webpack-chain
@@ -223,6 +223,6 @@ module.exports = configure((ctx) => ({
     chainWebpackPreload(/* chain */) {
       // do something with the Electron main process Webpack cfg
       // extendWebpackPreload also available besides this chainWebpackPreload
-    },
-  },
+    }
+  }
 }));

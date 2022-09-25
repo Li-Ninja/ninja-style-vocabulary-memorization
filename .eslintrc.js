@@ -104,6 +104,8 @@ module.exports = {
     // allow debugger during development only
     'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
 
-    "comma-dangle": ["error", "never"]
+    "comma-dangle": ["error", "never"],
+
+    "vue/multi-word-component-names": 'off'
   }
 }

@@ -1,10 +1,24 @@
 import { RouteRecordRaw } from 'vue-router';
+import { MenuEnum } from 'src/enums/common.enum';
+import { convertFromCamelToKebab } from 'src/utils/common.util';
 
 const routes: RouteRecordRaw[] = [
   {
     path: '/',
     component: () => import('layouts/MainLayout.vue'),
-    children: [{ path: '', component: () => import('pages/Home.vue') }]
+    redirect: MenuEnum.Home,
+    children: [
+      {
+        path: convertFromCamelToKebab(MenuEnum.Home),
+        name: MenuEnum.Home,
+        component: () => import('pages/Home.vue')
+      },
+      {
+        path: convertFromCamelToKebab(MenuEnum.Review),
+        name: MenuEnum.Review,
+        component: () => import('pages/Review.vue')
+      }
+    ]
   },
 
   // Always leave this as last one,

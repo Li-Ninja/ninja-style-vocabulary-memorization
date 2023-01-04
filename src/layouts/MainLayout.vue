@@ -5,17 +5,16 @@ const tabs = [
   {
     name: MenuEnum.Home,
     icon: 'mdi-home',
-    to: ''
+    to: {
+      name: MenuEnum.Home
+    }
   },
   {
-    name: MenuEnum.Record,
+    name: MenuEnum.Review,
     icon: 'mdi-file-search',
-    to: MenuEnum.Record
-  },
-  {
-    name: MenuEnum.Edit,
-    icon: 'mdi-pencil',
-    to: MenuEnum.Edit
+    to: {
+      name: MenuEnum.Review
+    }
   }
 ];
 
@@ -24,7 +23,6 @@ const tabs = [
 <template>
   <q-layout view="lHh Lpr lFf">
     <q-header elevated>
-
       <q-tabs dense>
         <q-route-tab
           v-for="tab in tabs"

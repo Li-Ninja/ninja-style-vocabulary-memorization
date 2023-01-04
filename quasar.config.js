@@ -14,6 +14,7 @@
 /* eslint global-require: 0 */
 
 const { configure } = require('quasar/wrappers');
+const path = require('path');
 const env = require('./env.js');
 
 module.exports = configure(ctx => ({
@@ -59,7 +60,7 @@ module.exports = configure(ctx => ({
   build: {
     vueRouterMode: 'hash', // available values: 'hash', 'history'
 
-    env
+    env,
 
     // transpile: false,
     // publicPath: '/',
@@ -80,7 +81,10 @@ module.exports = configure(ctx => ({
 
     // https://v2.quasar.dev/quasar-cli-webpack/handling-webpack
     // "chain" is a webpack-chain object https://github.com/neutrinojs/webpack-chain
-    // chainWebpack (/* chain */) {}
+    chainWebpack(chain) {
+      chain.resolve.alias
+        .set('@', path.resolve(__dirname, './src'));
+    }
   },
 
   // Full list of options: https://v2.quasar.dev/quasar-cli-webpack/quasar-config-js#Property%3A-devServer

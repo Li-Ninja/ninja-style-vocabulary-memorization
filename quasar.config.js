@@ -14,8 +14,9 @@
 /* eslint global-require: 0 */
 
 const { configure } = require('quasar/wrappers');
+const env = require('./env.js');
 
-module.exports = configure((ctx) => ({
+module.exports = configure(ctx => ({
   // https://v2.quasar.dev/quasar-cli-webpack/supporting-ts
   supportTS: {
     tsCheckerConfig: {
@@ -33,7 +34,6 @@ module.exports = configure((ctx) => ({
   // --> boot files are part of "main.js"
   // https://v2.quasar.dev/quasar-cli-webpack/boot-files
   boot: [
-
   ],
 
   // https://v2.quasar.dev/quasar-cli-webpack/quasar-config-js#Property%3A-css
@@ -57,7 +57,9 @@ module.exports = configure((ctx) => ({
 
   // Full list of options: https://v2.quasar.dev/quasar-cli-webpack/quasar-config-js#Property%3A-build
   build: {
-    vueRouterMode: 'hash' // available values: 'hash', 'history'
+    vueRouterMode: 'hash', // available values: 'hash', 'history'
+
+    env
 
     // transpile: false,
     // publicPath: '/',

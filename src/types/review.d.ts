@@ -16,3 +16,10 @@ export interface Review {
   answer: string;
   reviewInfo: ReviewInfo;
 }
+
+export interface ReviewPost extends Pick<Review,
+  'id' |
+  'reviewInfo'
+> {
+  isCorrect: boolean | null;
+}

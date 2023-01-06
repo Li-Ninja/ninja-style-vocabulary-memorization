@@ -110,6 +110,22 @@ module.exports = {
 
     '@typescript-eslint/no-explicit-any': 'off',
 
-    'arrow-parens': ['error', 'as-needed']
+    'arrow-parens': ['error', 'as-needed'],
+
+    'padding-line-between-statements': [
+      'error',
+      { 'blankLine': 'always', 'prev': '*', 'next': ['if', 'switch', 'do', 'while', 'for', 'debugger', 'function'] },
+      { 'blankLine': 'always', 'prev': ['if', 'switch', 'do', 'while', 'for', 'debugger', 'function'], 'next': '*' },
+      { 'blankLine': 'always', 'prev': ['import'], 'next': '*' },
+      { 'blankLine': 'any', 'prev': ['import'], 'next': ['import'] }
+    ],
+
+    'no-useless-return': 'off',
+
+    'no-multiple-empty-lines': ['error', { 'max': 1, 'maxEOF': 0, 'maxBOF': 0 }],
+
+    'newline-after-var': 'error',
+
+    'brace-style': ['error', '1tbs', { 'allowSingleLine': false }]
   }
 }

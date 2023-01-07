@@ -1,4 +1,5 @@
 import { Dayjs } from 'dayjs';
+import { Word } from './word';
 
 export interface ReviewInfo {
   ratio: number;
@@ -8,12 +9,13 @@ export interface ReviewInfo {
   nextReviewAt: Dayjs;
 }
 
-export interface Review {
+export interface Review extends Pick<Word,
+  'isFavorite'
+> {
   id: string;
-  isFavorite: boolean;
-  type: string;
-  question: string;
-  answer: string;
+  type: Word['text']['type']
+  question: Word['text']['question']
+  answer: Word['text']['answer']
   reviewInfo: ReviewInfo;
 }
 

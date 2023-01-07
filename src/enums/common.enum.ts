@@ -2,5 +2,8 @@ export enum MenuEnum {
   Home = 'Home',
   Record = 'Record',
   Review = 'Review',
-  Edit = 'Edit'
+
+  // Word
+  Word = 'Word',
+  WordTable = 'WordTable'
 }

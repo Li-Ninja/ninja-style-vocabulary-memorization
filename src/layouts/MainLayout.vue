@@ -10,6 +10,13 @@ const tabs = [
     }
   },
   {
+    name: MenuEnum.Word,
+    icon: 'mdi-sticker-text',
+    to: {
+      name: MenuEnum.Word
+    }
+  },
+  {
     name: MenuEnum.Review,
     icon: 'mdi-file-search',
     to: {

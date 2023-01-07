@@ -1,4 +1,4 @@
-import axios, { } from 'axios';
+import axios from 'axios';
 
 export function prepareApi() {
   const api = axios.create({
@@ -12,7 +12,7 @@ export function prepareApi() {
   }
 
   function postApi<D = any>(url: string, postData = {}) {
-    return api.post<D>(url, postData).then(res => res.data);
+    return api.post<D>(url, postData).then(res => res);
   }
 
   return {

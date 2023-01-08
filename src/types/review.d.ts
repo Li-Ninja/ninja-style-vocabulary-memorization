@@ -12,15 +12,15 @@ export interface ReviewInfo {
 export interface Review extends Pick<Word,
   'isFavorite'
 > {
-  id: string;
-  type: Word['text']['type']
-  question: Word['text']['question']
-  answer: Word['text']['answer']
+  word_id: Word['_id'];
+  type: Word['text']['type'];
+  question: Word['text']['question'];
+  answer: Word['text']['answer'];
   reviewInfo: ReviewInfo;
 }
 
 export interface ReviewPost extends Pick<Review,
-  'id' |
+  'word_id' |
   'reviewInfo'
 > {
   isCorrect: boolean | null;

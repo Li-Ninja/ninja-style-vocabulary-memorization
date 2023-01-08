@@ -5,7 +5,7 @@ import {
   toRefs
 } from 'vue';
 import { useWordApi } from '@/apis/word.api';
-import { Word } from '@/types/word';
+import { Word, WordPost } from '@/types/word';
 
 export const useApiWordStore = defineStore('apiWord', () => {
   // state
@@ -19,8 +19,13 @@ export const useApiWordStore = defineStore('apiWord', () => {
     state.wordList = data;
   }
 
+  function postWordList(postData: WordPost[]) {
+    return useWordApi().postWord(postData);
+  }
+
   return {
     ...toRefs(readonly(state)),
-    getWordList
+    getWordList,
+    postWordList
   };
 });

@@ -5,5 +5,6 @@ export enum MenuEnum {
 
   // Word
   Word = 'Word',
-  WordTable = 'WordTable'
+  WordTable = 'WordTable',
+  WordAdd = 'WordAdd'
 }

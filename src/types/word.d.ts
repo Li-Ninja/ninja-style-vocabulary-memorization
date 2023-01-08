@@ -6,5 +6,11 @@ export interface Word {
     type: string;
     question: string;
     answer: string;
-  }
+  };
+}
+
+export interface WordPost {
+  type: Word['text']['type'];
+  question: Word['text']['question'];
+  answer: Word['text']['answer'];
 }

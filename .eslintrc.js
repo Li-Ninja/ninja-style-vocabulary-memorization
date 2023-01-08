@@ -63,6 +63,29 @@ module.exports = {
     chrome: 'readonly',
   },
 
+  overrides: [
+    {
+      files: ['*.ts', '*.tsx', '*.vue'],
+      env: {
+        browser: true,
+        node: true
+      },
+      rules: {
+        '@typescript-eslint/member-delimiter-style': 'warn'
+      }
+    },
+    {
+      files: ['*.vue'],
+      env: {
+        browser: true,
+        node: true
+      },
+      rules: {
+        'vue/space-infix-ops': 'error'
+      }
+    }
+  ],
+
   // add your custom rules here
   rules: {
 

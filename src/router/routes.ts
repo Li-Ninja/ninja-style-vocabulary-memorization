@@ -30,6 +30,11 @@ const routes: RouteRecordRaw[] = [
             path: '',
             name: MenuEnum.WordTable,
             component: () => import('pages/word/WordTable.vue')
+          },
+          {
+            path: '',
+            name: MenuEnum.WordAdd,
+            component: () => import('pages/word/WordAdd.vue')
           }
         ]
       }

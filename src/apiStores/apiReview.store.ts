@@ -5,29 +5,41 @@ import {
   toRefs
 } from 'vue';
 import { useReviewApi } from '@/apis/review.api';
-import { Review, ReviewPost } from '@/types/review';
+import {
+  ReviewLog,
+  ReviewWord,
+  ReviewWordPost
+} from '@/types/review';
 
 export const useApiReviewStore = defineStore('apiReview', () => {
   // state
   const state = shallowReactive({
-    reviewList: [] as Review[]
+    reviewWordList: [] as ReviewWord[],
+    reviewLogList: [] as ReviewLog[]
   });
 
-  async function getReviewList() {
-    const data = await useReviewApi().getReviewList();
+  async function getReviewWordList() {
+    const data = await useReviewApi().getReviewWordList();
 
-    state.reviewList = data;
+    state.reviewWordList = data;
   }
 
-  async function postReviewList(postData: ReviewPost[]) {
-    const data = useReviewApi().postReviewList(postData);
+  async function getReviewLogList() {
+    const data = await useReviewApi().getReviewLogList();
+
+    state.reviewLogList = data;
+  }
+
+  async function postReviewWordList(postData: ReviewWordPost[]) {
+    const data = useReviewApi().postReviewWordList(postData);
 
     return data;
   }
 
   return {
     ...toRefs(readonly(state)),
-    getReviewList,
-    postReviewList
+    getReviewWordList,
+    getReviewLogList,
+    postReviewWordList
   };
 });

@@ -5,22 +5,22 @@ import {
   DeepReadonly
 } from 'vue';
 import { useVModel } from '@vueuse/core';
-import { Review, ReviewPost } from '@/types/review';
+import { ReviewWord, ReviewWordPost } from '@/types/review';
 import ReviewCard from '@/components/review/ReviewCard.vue';
 
 const props = defineProps<{
-reviewList: DeepReadonly<Review[]>;
-postList: ReviewPost[];
+reviewWordList: DeepReadonly<ReviewWord[]>;
+reviewWordPostList: ReviewWordPost[];
 }>();
-const emits = defineEmits(['update:postList']);
+const emits = defineEmits(['update:reviewWordPostList']);
 
 // deep is need to set passive = true
-const postList = useVModel(props, 'postList', emits, { passive: true, deep: true });
+const reviewWordPostList = useVModel(props, 'reviewWordPostList', emits, { passive: true, deep: true });
 
 const index = shallowRef(0);
 
-watch(() => postList, () => {
-  if (postList.value.length - 1 === index.value) {
+watch(() => reviewWordPostList, () => {
+  if (reviewWordPostList.value.length - 1 === index.value) {
     return;
   }
 
@@ -32,9 +32,9 @@ watch(() => postList, () => {
 <template>
   <div>
     <ReviewCard
-      :question="reviewList[index].question"
-      :answer="reviewList[index].answer"
-      v-model:is-correct="postList[index].isCorrect"
+      :question="reviewWordList[index].question"
+      :answer="reviewWordList[index].answer"
+      v-model:is-correct="reviewWordPostList[index].isCorrect"
     />
   </div>
 </template>

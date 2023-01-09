@@ -8,6 +8,13 @@ const tabs = [
     to: {
       name: MenuEnum.ReviewWord
     }
+  },
+  {
+    name: MenuEnum.ReviewLog,
+    icon: 'mdi-clipboard-text-clock',
+    to: {
+      name: MenuEnum.ReviewLog
+    }
   }
 ];
 

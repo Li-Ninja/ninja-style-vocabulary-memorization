@@ -5,6 +5,7 @@ export enum MenuEnum {
   // Review
   Review = 'Review',
   ReviewWord = 'ReviewWord',
+  ReviewLog = 'ReviewLog',
 
   // Word
   Word = 'Word',

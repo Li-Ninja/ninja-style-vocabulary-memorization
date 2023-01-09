@@ -25,6 +25,11 @@ const routes: RouteRecordRaw[] = [
             path: '',
             name: MenuEnum.ReviewWord,
             component: () => import('pages/review/ReviewWord.vue')
+          },
+          {
+            path: convertFromCamelToKebab(MenuEnum.ReviewLog),
+            name: MenuEnum.ReviewLog,
+            component: () => import('pages/review/ReviewLog.vue')
           }
         ]
       },

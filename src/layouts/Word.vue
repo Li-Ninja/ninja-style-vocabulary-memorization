@@ -4,7 +4,9 @@
 </script>
 
 <template>
-  <suspense>
-    <router-view />
-  </suspense>
+  <div>
+    <suspense>
+      <router-view />
+    </suspense>
+  </div>
 </template>

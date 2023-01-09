@@ -23,7 +23,7 @@ watch(() => reviewList, () => {
   isShowCard.value = true;
 
   postList.value = reviewList.value.map(review => ({
-    id: review.id,
+    word_id: review.word_id,
     isCorrect: null,
     reviewInfo: review.reviewInfo
   }));

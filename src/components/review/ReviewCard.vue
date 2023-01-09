@@ -4,9 +4,9 @@ import { useVModel } from '@vueuse/core';
 import { Review, ReviewPost } from '@/types/review';
 
 const props = defineProps<{
-  question: Review['question'],
-  answer: Review['answer'],
-  isCorrect: ReviewPost['isCorrect']
+  question: Review['question'];
+  answer: Review['answer'];
+  isCorrect: ReviewPost['isCorrect'];
 }>();
 const emits = defineEmits(['update:isCorrect']);
 const isShowAnswer = shallowRef(false);

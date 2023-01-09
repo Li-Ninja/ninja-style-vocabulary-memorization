@@ -9,8 +9,8 @@ import { Review, ReviewPost } from '@/types/review';
 import ReviewCard from '@/components/review/ReviewCard.vue';
 
 const props = defineProps<{
-reviewList: DeepReadonly<Review[]>,
-postList: ReviewPost[]
+reviewList: DeepReadonly<Review[]>;
+postList: ReviewPost[];
 }>();
 const emits = defineEmits(['update:postList']);
 

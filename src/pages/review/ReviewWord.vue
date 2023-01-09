@@ -9,20 +9,20 @@ import {
 import { storeToRefs } from 'pinia';
 import { Notify } from 'quasar';
 import ReviewCardList from '@/components/review/ReviewCardList.vue';
-import { ReviewPost } from '@/types/review';
+import { ReviewWordPost } from '@/types/review';
 import { useApiReviewStore } from '@/apiStores/apiReview.store';
 
-const { getReviewList, postReviewList } = useApiReviewStore();
-const { reviewList } = storeToRefs(useApiReviewStore());
-const postList: Ref<ReviewPost[]> = ref([]);
+const { getReviewWordList, postReviewWordList } = useApiReviewStore();
+const { reviewWordList } = storeToRefs(useApiReviewStore());
+const reviewWordPostList: Ref<ReviewWordPost[]> = ref([]);
 const isShowCard = shallowRef(true);
 
-void getReviewList();
+void getReviewWordList();
 
-watch(() => reviewList, () => {
+watch(() => reviewWordList, () => {
   isShowCard.value = true;
 
-  postList.value = reviewList.value.map(review => ({
+  reviewWordPostList.value = reviewWordList.value.map(review => ({
     word_id: review.word_id,
     isCorrect: null,
     reviewInfo: review.reviewInfo
@@ -30,7 +30,7 @@ watch(() => reviewList, () => {
 }, { deep: true });
 
 async function sendData() {
-  const data = await postReviewList(postList.value);
+  const data = await postReviewWordList(reviewWordPostList.value);
 
   if (data.status === HttpStatusCode.Ok) {
     Notify.create({
@@ -38,7 +38,7 @@ async function sendData() {
       color: 'primary'
     });
 
-    void getReviewList();
+    void getReviewWordList();
   } else {
     Notify.create({
       message: data.statusText,
@@ -47,8 +47,8 @@ async function sendData() {
   }
 }
 
-watch(() => postList, () => {
-  const isShow = !!postList.value.find(item => item.isCorrect === null);
+watch(() => reviewWordPostList, () => {
+  const isShow = !!reviewWordPostList.value.find(item => item.isCorrect === null);
 
   if (isShow) {
     return;
@@ -60,14 +60,12 @@ watch(() => postList, () => {
 </script>
 
 <template>
-  <h1>Review</h1>
-
   <div class="row justify-center">
     <template v-if="isShowCard">
       <ReviewCardList
         class="col-6"
-        :review-list="reviewList"
-        :post-list="postList"
+        :review-word-list="reviewWordList"
+        :review-word-post-list="reviewWordPostList"
       />
     </template>
     <template v-else>
@@ -81,7 +79,7 @@ watch(() => postList, () => {
           <q-btn
             color="primary"
             label="重新練習"
-            @click="getReviewList()"
+            @click="getReviewWordList()"
           />
         </q-btn-group>
       </div>

@@ -1,23 +1,33 @@
 import { useApi } from '@/composables/useApi';
-import { Review, ReviewPost } from '@/types/review';
+import {
+  ReviewLog,
+  ReviewWord,
+  ReviewWordPost
+} from '@/types/review';
 
 const { getApi, postApi } = useApi();
 
 export function useReviewApi() {
   const url = {
-    review: '/review'
+    reviewWordList: '/review/wordList',
+    reviewLogList: '/review/logList'
   };
 
-  function getReviewList<D extends Review[]>() {
-    return getApi<D>(url.review);
+  function getReviewWordList<D extends ReviewWord[]>() {
+    return getApi<D>(url.reviewWordList);
   }
 
-  function postReviewList(postData: ReviewPost[]) {
-    return postApi(url.review, postData);
+  function getReviewLogList<D extends ReviewLog[]>() {
+    return getApi<D>(url.reviewLogList);
+  }
+
+  function postReviewWordList(postData: ReviewWordPost[]) {
+    return postApi(url.reviewWordList, postData);
   }
 
   return {
-    getReviewList,
-    postReviewList
+    getReviewWordList,
+    getReviewLogList,
+    postReviewWordList
   };
 }

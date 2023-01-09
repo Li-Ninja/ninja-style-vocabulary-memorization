@@ -1,12 +1,12 @@
 <script setup lang="ts">
 import { shallowRef } from 'vue';
 import { useVModel } from '@vueuse/core';
-import { Review, ReviewPost } from '@/types/review';
+import { ReviewWord, ReviewWordPost } from '@/types/review';
 
 const props = defineProps<{
-  question: Review['question'];
-  answer: Review['answer'];
-  isCorrect: ReviewPost['isCorrect'];
+  question: ReviewWord['question'];
+  answer: ReviewWord['answer'];
+  isCorrect: ReviewWordPost['isCorrect'];
 }>();
 const emits = defineEmits(['update:isCorrect']);
 const isShowAnswer = shallowRef(false);

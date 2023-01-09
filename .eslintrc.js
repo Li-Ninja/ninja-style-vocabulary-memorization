@@ -151,6 +151,8 @@ module.exports = {
 
     // brace-style and curly is control if, need brace and need change line
     'brace-style': ['error', '1tbs', { 'allowSingleLine': false }],
-    'curly': ['error', 'all']
+    'curly': ['error', 'all'],
+
+    'dot-notation': ['error', { 'allowPattern': '^_[a-z, 0-9]+$' }]
   }
 }

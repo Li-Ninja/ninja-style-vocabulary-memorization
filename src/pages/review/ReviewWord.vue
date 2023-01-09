@@ -60,8 +60,6 @@ watch(() => postList, () => {
 </script>
 
 <template>
-  <h1>Review</h1>
-
   <div class="row justify-center">
     <template v-if="isShowCard">
       <ReviewCardList

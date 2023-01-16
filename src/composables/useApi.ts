@@ -4,7 +4,7 @@ export function prepareApi() {
   const api = axios.create({
     // can last connecting 1 min
     timeout: 60000,
-    baseURL: process.env.API_DOMAIN
+    baseURL: process.env.API_DOMAIN,
   });
 
   function getApi<D = any>(url: string, postData = {}) {
@@ -17,7 +17,7 @@ export function prepareApi() {
 
   return {
     getApi,
-    postApi
+    postApi,
   };
 }
 

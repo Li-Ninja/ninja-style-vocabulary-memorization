@@ -6,23 +6,23 @@ const tabs = [
     name: MenuEnum.Home,
     icon: 'mdi-home',
     to: {
-      name: MenuEnum.Home
-    }
+      name: MenuEnum.Home,
+    },
   },
   {
     name: MenuEnum.Word,
     icon: 'mdi-sticker-text',
     to: {
-      name: MenuEnum.Word
-    }
+      name: MenuEnum.Word,
+    },
   },
   {
     name: MenuEnum.Review,
     icon: 'mdi-file-search',
     to: {
-      name: MenuEnum.Review
-    }
-  }
+      name: MenuEnum.Review,
+    },
+  },
 ];
 
 </script>

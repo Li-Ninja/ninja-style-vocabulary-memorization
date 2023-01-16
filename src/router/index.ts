@@ -3,7 +3,7 @@ import {
   createMemoryHistory,
   createRouter,
   createWebHashHistory,
-  createWebHistory
+  createWebHistory,
 } from 'vue-router';
 import routes from './routes';
 
@@ -29,8 +29,8 @@ export default route((/* { store, ssrContext } */) => {
     // quasar.conf.js -> build -> vueRouterMode
     // quasar.conf.js -> build -> publicPath
     history: createHistory(
-      process.env.MODE === 'ssr' ? void 0 : process.env.VUE_ROUTER_BASE
-    )
+      process.env.MODE === 'ssr' ? void 0 : process.env.VUE_ROUTER_BASE,
+    ),
   });
 
   return Router;

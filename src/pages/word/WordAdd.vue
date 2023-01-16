@@ -14,7 +14,7 @@ const defaultWordPost: WordPost = {
   // TODO can choose another type
   type: 'card',
   question: '',
-  answer: ''
+  answer: '',
 };
 const postList: Ref<WordPost[]> = ref([{ ...defaultWordPost }]);
 
@@ -29,14 +29,14 @@ async function onSubmit() {
   if (data.status === HttpStatusCode.Ok) {
     Notify.create({
       message: data.statusText,
-      color: 'primary'
+      color: 'primary',
     });
 
     router.push({ name: MenuEnum.Word });
   } else {
     Notify.create({
       message: data.statusText,
-      color: 'negative'
+      color: 'negative',
     });
   }
 }

@@ -6,7 +6,7 @@ const { getApi, postApi } = useApi();
 export function useWordApi() {
   const url = {
     word: '/word',
-    wordList: '/word/list'
+    wordList: '/word/list',
   };
 
   function getWordList() {
@@ -19,6 +19,6 @@ export function useWordApi() {
 
   return {
     getWordList,
-    postWord
+    postWord,
   };
 }

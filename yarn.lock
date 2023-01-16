@@ -1063,10 +1063,10 @@
   resolved "https://registry.yarnpkg.com/@leichtgewicht/ip-codec/-/ip-codec-2.0.4.tgz#b2ac626d6cb9c8718ab459166d4bb405b8ffa78b"
   integrity sha512-Hcv+nVC0kZnQ3tD9GVu5xSMR4VVYOteQIr/hwFPVEvPdlXqgGEuRjiheChHgdM+JyqdgNcmzZOX/tnl0JOiI7A==
 
-"@ninjaccc/eslint-config@^1.0.1":
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/@ninjaccc/eslint-config/-/eslint-config-1.0.1.tgz#6c76c938a9eddcf841b8e01b6e75f9721cee4752"
-  integrity sha512-bMfEDsO57cj12d4yCsSDVCrxqOfcb25lUkWv82eUhpfml3CXd8V7lCdatExpcLoZbt10+N0tjYdP+3Yfkg20RA==
+"@ninjaccc/eslint-config@^1.0.2":
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/@ninjaccc/eslint-config/-/eslint-config-1.0.2.tgz#3eaab5b4a2e4267ccd1c551b02b276956cd94b3f"
+  integrity sha512-CjZrXD92nijee5wU2XXjJAXVJw3sCaQ6btlNbMgIWflStrz9C8Fir+4OIdT4cmZWysjgUZI4DfainaKVCKt/EA==
 
 "@nodelib/fs.scandir@2.1.5":
   version "2.1.5"

@@ -11,57 +11,57 @@ const routes: RouteRecordRaw[] = [
       {
         path: convertFromCamelToKebab(MenuEnum.Home),
         name: MenuEnum.Home,
-        component: () => import('pages/Home.vue')
+        component: () => import('pages/Home.vue'),
       },
       {
         path: convertFromCamelToKebab(MenuEnum.Review),
         name: MenuEnum.Review,
         redirect: {
-          name: MenuEnum.ReviewWord
+          name: MenuEnum.ReviewWord,
         },
         component: () => import('pages/review/Review.vue'),
         children: [
           {
             path: '',
             name: MenuEnum.ReviewWord,
-            component: () => import('pages/review/ReviewWord.vue')
+            component: () => import('pages/review/ReviewWord.vue'),
           },
           {
             path: convertFromCamelToKebab(MenuEnum.ReviewLog),
             name: MenuEnum.ReviewLog,
-            component: () => import('pages/review/ReviewLog.vue')
-          }
-        ]
+            component: () => import('pages/review/ReviewLog.vue'),
+          },
+        ],
       },
       {
         path: convertFromCamelToKebab(MenuEnum.Word),
         name: MenuEnum.Word,
         component: () => import('pages/word/Word.vue'),
         redirect: {
-          name: MenuEnum.WordTable
+          name: MenuEnum.WordTable,
         },
         children: [
           {
             path: '',
             name: MenuEnum.WordTable,
-            component: () => import('pages/word/WordTable.vue')
+            component: () => import('pages/word/WordTable.vue'),
           },
           {
             path: '',
             name: MenuEnum.WordAdd,
-            component: () => import('pages/word/WordAdd.vue')
-          }
-        ]
-      }
-    ]
+            component: () => import('pages/word/WordAdd.vue'),
+          },
+        ],
+      },
+    ],
   },
 
   // Always leave this as last one,
   // but you can also remove it
   {
     path: '/:catchAll(.*)*',
-    component: () => import('pages/ErrorNotFound.vue')
-  }
+    component: () => import('pages/ErrorNotFound.vue'),
+  },
 ];
 
 export default routes;

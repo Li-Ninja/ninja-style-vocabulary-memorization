@@ -15,14 +15,14 @@ const columns: Array<QTableColumn<Word>> = [
     name: 'question',
     label: 'question',
     align: 'center',
-    field: row => row.text.question
+    field: row => row.text.question,
   },
   {
     name: 'answer',
     label: 'answer',
     align: 'center',
-    field: row => row.text.answer
-  }
+    field: row => row.text.answer,
+  },
 ];
 
 </script>

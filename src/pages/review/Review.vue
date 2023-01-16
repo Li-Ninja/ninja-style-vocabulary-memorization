@@ -6,16 +6,16 @@ const tabs = [
     name: MenuEnum.ReviewWord,
     icon: 'mdi-sword',
     to: {
-      name: MenuEnum.ReviewWord
-    }
+      name: MenuEnum.ReviewWord,
+    },
   },
   {
     name: MenuEnum.ReviewLog,
     icon: 'mdi-clipboard-text-clock',
     to: {
-      name: MenuEnum.ReviewLog
-    }
-  }
+      name: MenuEnum.ReviewLog,
+    },
+  },
 ];
 
 </script>

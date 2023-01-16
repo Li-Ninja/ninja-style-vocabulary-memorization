@@ -2,20 +2,20 @@ import { defineStore } from 'pinia';
 import {
   readonly,
   shallowReactive,
-  toRefs
+  toRefs,
 } from 'vue';
 import { useReviewApi } from '@/apis/review.api';
 import {
   ReviewLog,
   ReviewWord,
-  ReviewWordPost
+  ReviewWordPost,
 } from '@/types/review';
 
 export const useApiReviewStore = defineStore('apiReview', () => {
   // state
   const state = shallowReactive({
     reviewWordList: [] as ReviewWord[],
-    reviewLogList: [] as ReviewLog[]
+    reviewLogList: [] as ReviewLog[],
   });
 
   async function getReviewWordList() {
@@ -40,6 +40,6 @@ export const useApiReviewStore = defineStore('apiReview', () => {
     ...toRefs(readonly(state)),
     getReviewWordList,
     getReviewLogList,
-    postReviewWordList
+    postReviewWordList,
   };
 });

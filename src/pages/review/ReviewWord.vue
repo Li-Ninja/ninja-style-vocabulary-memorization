@@ -4,7 +4,7 @@ import {
   ref,
   shallowRef,
   watch,
-  Ref
+  Ref,
 } from 'vue';
 import { storeToRefs } from 'pinia';
 import { Notify } from 'quasar';
@@ -25,7 +25,7 @@ watch(() => reviewWordList, () => {
   reviewWordPostList.value = reviewWordList.value.map(review => ({
     word_id: review.word_id,
     isCorrect: null,
-    reviewInfo: review.reviewInfo
+    reviewInfo: review.reviewInfo,
   }));
 }, { deep: true });
 
@@ -35,14 +35,14 @@ async function sendData() {
   if (data.status === HttpStatusCode.Ok) {
     Notify.create({
       message: data.statusText,
-      color: 'primary'
+      color: 'primary',
     });
 
     void getReviewWordList();
   } else {
     Notify.create({
       message: data.statusText,
-      color: 'negative'
+      color: 'negative',
     });
   }
 }

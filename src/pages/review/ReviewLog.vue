@@ -15,44 +15,44 @@ const columns: Array<QTableColumn<ReviewLog>> = [
     name: '_id',
     label: '_id',
     align: 'center',
-    field: row => row['_id']
+    field: row => row['_id'],
   },
   {
     name: 'createAt',
     label: 'createAt',
     align: 'center',
-    field: row => row.createAt
+    field: row => row.createAt,
   },
   {
     name: 'isCorrect',
     label: 'isCorrect',
     align: 'center',
-    field: row => row.isCorrect
+    field: row => row.isCorrect,
   },
   {
     name: 'reviewInfo',
     label: 'reviewInfo',
     align: 'center',
-    field: row => row.reviewInfo
+    field: row => row.reviewInfo,
   },
   {
     name: 'type',
     label: 'type',
     align: 'center',
-    field: row => row.type
+    field: row => row.type,
   },
   {
     name: 'question',
     label: 'question',
     align: 'center',
-    field: row => row.question
+    field: row => row.question,
   },
   {
     name: 'answer',
     label: 'answer',
     align: 'center',
-    field: row => row.answer
-  }
+    field: row => row.answer,
+  },
 ];
 
 </script>

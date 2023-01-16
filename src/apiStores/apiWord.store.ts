@@ -2,7 +2,7 @@ import { defineStore } from 'pinia';
 import {
   readonly,
   shallowReactive,
-  toRefs
+  toRefs,
 } from 'vue';
 import { useWordApi } from '@/apis/word.api';
 import { Word, WordPost } from '@/types/word';
@@ -10,7 +10,7 @@ import { Word, WordPost } from '@/types/word';
 export const useApiWordStore = defineStore('apiWord', () => {
   // state
   const state = shallowReactive({
-    wordList: [] as Word[]
+    wordList: [] as Word[],
   });
 
   async function getWordList() {
@@ -26,6 +26,6 @@ export const useApiWordStore = defineStore('apiWord', () => {
   return {
     ...toRefs(readonly(state)),
     getWordList,
-    postWordList
+    postWordList,
   };
 });

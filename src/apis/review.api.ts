@@ -2,7 +2,7 @@ import { useApi } from '@/composables/useApi';
 import {
   ReviewLog,
   ReviewWord,
-  ReviewWordPost
+  ReviewWordPost,
 } from '@/types/review';
 
 const { getApi, postApi } = useApi();
@@ -10,7 +10,7 @@ const { getApi, postApi } = useApi();
 export function useReviewApi() {
   const url = {
     reviewWordList: '/review/wordList',
-    reviewLogList: '/review/logList'
+    reviewLogList: '/review/logList',
   };
 
   function getReviewWordList<D extends ReviewWord[]>() {
@@ -28,6 +28,6 @@ export function useReviewApi() {
   return {
     getReviewWordList,
     getReviewLogList,
-    postReviewWordList
+    postReviewWordList,
   };
 }

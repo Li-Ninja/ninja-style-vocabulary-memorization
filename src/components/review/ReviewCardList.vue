@@ -2,7 +2,7 @@
 import {
   shallowRef,
   watch,
-  DeepReadonly
+  DeepReadonly,
 } from 'vue';
 import { useVModel } from '@vueuse/core';
 import { ReviewWord, ReviewWordPost } from '@/types/review';

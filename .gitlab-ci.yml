@@ -12,11 +12,13 @@ workflow:
 
 testing:
   stage: build
+  image: node:14.17.2
   script:
     - echo "some code test"
 
 build:
   stage: build
+  image: node:14.17.2
   needs:
     - testing
   script:
@@ -24,6 +26,7 @@ build:
 
 push_image:
   stage: push_image
+  image: docker:20.0.20
   script:
     - echo "hello push_image"
 

@@ -1,6 +1,6 @@
 stages:
     - build
-    - push_image
+    - docker-image
     - deploy
 
 workflow:
@@ -29,13 +29,25 @@ build:
     - yarn install
     - yarn build
 
-push_image:
-  stage: push_image
+build-docker-image:
+  stage: docker-image
   # tags:
   #   - dev-runner
   image: docker:18.09.7
   script:
-    - echo "hello push_image"
+    - docker build -t $CI_REGISTRY_IMAGE:vocabulary-frontend_v$CI_COMMIT_TAG .
+
+push-to-registry:
+  stage: docker-image
+  # tags:
+  #   - dev-runner
+  needs:
+    - build-docker-image
+  image: docker:18.09.7
+  before_script:
+    - docker login -u "$CI_REGISTRY_USER" -p $CI_REGISTRY_PASSWORD "$CI_REGISTRY"
+  script:
+    - docker push $CI_REGISTRY_IMAGE:vocabulary-frontend_v$CI_COMMIT_TAG
 
 deploy:
   stage: deploy

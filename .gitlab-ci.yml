@@ -33,7 +33,7 @@ push_image:
   stage: push_image
   # tags:
   #   - dev-runner
-  image: docker:20.0.20
+  image: docker:18.09.7
   script:
     - echo "hello push_image"
 

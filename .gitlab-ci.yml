@@ -12,16 +12,16 @@ workflow:
 
 testing:
   stage: build
-  # tags:
-    # - dev-runner
+  tags:
+    - dev-runner
   image: node:14.17.2
   script:
     - echo "some code test"
 
 build:
   stage: build
-  # tags:
-    # - dev-runner
+  tags:
+    - dev-runner
   image: node:14.17.2
   needs:
     - testing
@@ -31,16 +31,16 @@ build:
 
 build-docker-image:
   stage: docker-image
-  # tags:
-  #   - dev-runner
+  tags:
+    - dev-runner
   image: docker:18.09.7
   script:
     - docker build -t $CI_REGISTRY_IMAGE:vocabulary-frontend_v$CI_COMMIT_TAG .
 
 push-to-registry:
   stage: docker-image
-  # tags:
-  #   - dev-runner
+  tags:
+    - dev-runner
   needs:
     - build-docker-image
   image: docker:18.09.7
@@ -51,7 +51,7 @@ push-to-registry:
 
 deploy:
   stage: deploy
-  # tags:
-  #   - dev-runner
+  tags:
+    - dev-runner
   script:
     - echo "hello deploy"

@@ -13,7 +13,7 @@ workflow:
 testing:
   stage: build
   tags:
-    - dev-runner
+    - dev-runner2
   image: node:14.17.2
   script:
     - echo "some code test"
@@ -21,7 +21,7 @@ testing:
 build:
   stage: build
   tags:
-    - dev-runner
+    - dev-runner2
   image: node:14.17.2
   needs:
     - testing
@@ -32,7 +32,7 @@ build:
 build-docker-image:
   stage: docker-image
   tags:
-    - dev-runner
+    - dev-runner2
   image: docker:18.09.7
   services:
     - docker:18.09.7-dind
@@ -42,7 +42,7 @@ build-docker-image:
 push-to-registry:
   stage: docker-image
   tags:
-    - dev-runner
+    - dev-runner2
   needs:
     - build-docker-image
   image: docker:18.09.7
@@ -54,6 +54,6 @@ push-to-registry:
 deploy:
   stage: deploy
   tags:
-    - dev-runner
+    - dev-runner2
   script:
     - echo "hello deploy"

@@ -35,6 +35,8 @@ build-docker-image:
     - dev-runner
   image: docker:18.09.7
   script:
+    - sudo service --status-all
+    - sudo service docker start
     - docker build -t $CI_REGISTRY_IMAGE:vocabulary-frontend_v$CI_COMMIT_TAG .
 
 push-to-registry:

@@ -26,7 +26,8 @@ build:
   needs:
     - testing
   script:
-    - echo "hello build"
+    - yarn install
+    - yarn build
 
 push_image:
   stage: push_image

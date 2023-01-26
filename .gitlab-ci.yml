@@ -1,7 +1,7 @@
 stages:
     - build
-    # - docker-image
-    # - deploy
+    - docker-image
+    - deploy
 
 workflow:
   rules:
@@ -18,40 +18,40 @@ testing:
   script:
     - echo "some code test"
 
-# build:
-#   stage: build
-#   tags:
-#     - dev-runner
-#   image: node:14.17.2
-#   needs:
-#     - testing
-#   script:
-#     - yarn install
-#     - yarn build
+build:
+  stage: build
+  tags:
+    - dev-runner
+  image: node:14.17.2
+  needs:
+    - testing
+  script:
+    - yarn install
+    - yarn build
 
-# build-docker-image:
-#   stage: docker-image
-#   tags:
-#     - dev-runner
-#   image: docker:18.09.7
-#   script:
-#     - docker build -t $CI_REGISTRY_IMAGE:vocabulary-frontend_v$CI_COMMIT_TAG .
+build-docker-image:
+  stage: docker-image
+  tags:
+    - dev-runner
+  image: docker:18.09.7
+  script:
+    - docker build -t $CI_REGISTRY_IMAGE:vocabulary-frontend_v$CI_COMMIT_TAG .
 
-# push-to-registry:
-#   stage: docker-image
-#   tags:
-#     - dev-runner
-#   needs:
-#     - build-docker-image
-#   image: docker:18.09.7
-#   before_script:
-#     - docker login -u "$CI_REGISTRY_USER" -p $CI_REGISTRY_PASSWORD "$CI_REGISTRY"
-#   script:
-#     - docker push $CI_REGISTRY_IMAGE:vocabulary-frontend_v$CI_COMMIT_TAG
+push-to-registry:
+  stage: docker-image
+  tags:
+    - dev-runner
+  needs:
+    - build-docker-image
+  image: docker:18.09.7
+  before_script:
+    - docker login -u "$CI_REGISTRY_USER" -p $CI_REGISTRY_PASSWORD "$CI_REGISTRY"
+  script:
+    - docker push $CI_REGISTRY_IMAGE:vocabulary-frontend_v$CI_COMMIT_TAG
 
-# deploy:
-#   stage: deploy
-#   tags:
-#     - dev-runner
-#   script:
-#     - echo "hello deploy"
+deploy:
+  stage: deploy
+  tags:
+    - dev-runner
+  script:
+    - echo "hello deploy"

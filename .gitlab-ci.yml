@@ -3,8 +3,15 @@ stages:
     - push_image
     - deploy
 
+testing:
+  stage: build
+  script:
+    - echo "some code test"
+
 build:
   stage: build
+  needs:
+    - testing
   script:
     - echo "hello build"
 

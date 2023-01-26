@@ -37,6 +37,11 @@ build-docker-image:
   services:
     - docker:18.09.7-dind
   script:
+    - sudo groupadd -f docker
+    - sudo usermod -aG docker $USER
+    - $USER
+    - newgrp docker
+    - groups
     - docker build -t $CI_REGISTRY_IMAGE:vocabulary-frontend_v$CI_COMMIT_TAG .
 
 push-to-registry:

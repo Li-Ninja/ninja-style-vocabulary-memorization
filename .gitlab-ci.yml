@@ -1,3 +1,19 @@
+stages:
+    - build
+    - push_image
+    - deploy
+
 build:
+  stage: build
   script:
     - echo "hello build"
+
+push_image:
+  stage: push_image
+  script:
+    - echo "hello push_image"
+
+deploy:
+  stage: deploy
+  script:
+    - echo "hello deploy"

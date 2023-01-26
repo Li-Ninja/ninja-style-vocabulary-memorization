@@ -3,21 +3,20 @@ stages:
     - push_image
     - deploy
 
+workflow:
+  rules:
+    # TEST CI_COMMIT_BRANCH
+    - if: ($CI_COMMIT_TAG != null || $CI_COMMIT_BRANCH == "chore/cicd")
+      when: always
+    - when: never
+
 testing:
   stage: build
-  only:
-    - tags
-    #TEST
-    - chore/cicd
   script:
     - echo "some code test"
 
 build:
   stage: build
-  only:
-    - tags
-    #TEST
-    - chore/cicd
   needs:
     - testing
   script:
@@ -25,18 +24,10 @@ build:
 
 push_image:
   stage: push_image
-  only:
-    - tags
-    #TEST
-    - chore/cicd
   script:
     - echo "hello push_image"
 
 deploy:
   stage: deploy
-  only:
-    - tags
-    #TEST
-    - chore/cicd
   script:
     - echo "hello deploy"

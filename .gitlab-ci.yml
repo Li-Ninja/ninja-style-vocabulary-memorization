@@ -12,12 +12,16 @@ workflow:
 
 testing:
   stage: build
+  tags:
+    - dev-runner
   image: node:14.17.2
   script:
     - echo "some code test"
 
 build:
   stage: build
+  tags:
+    - dev-runner
   image: node:14.17.2
   needs:
     - testing
@@ -26,11 +30,15 @@ build:
 
 push_image:
   stage: push_image
+  tags:
+    - dev-runner
   image: docker:20.0.20
   script:
     - echo "hello push_image"
 
 deploy:
   stage: deploy
+  tags:
+    - dev-runner
   script:
     - echo "hello deploy"

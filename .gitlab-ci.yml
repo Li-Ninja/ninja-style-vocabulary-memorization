@@ -62,7 +62,6 @@ deploy:
     - ssh -o StrictHostKeyChecking=no $GCP_USER@$GCP_VOCABULARY_FRONTEND_SERVER "
 
       export IMAGE_NAME=$CI_REGISTRY_IMAGE:vocabulary-frontend_v$CI_COMMIT_TAG
-      # avoid other docker-compose project been down if have other docker container run the same vm
       export COMPOSE_PROJECT_NAME=front_stage
 
       docker-compose down &&

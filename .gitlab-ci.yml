@@ -33,7 +33,7 @@ workflow:
 build-docker-image:
   stage: docker-image
   tags:
-    - dev-runner2
+    - dev-runner3
   image: docker:18.09.7
   services:
     - docker:18.09.7-dind
@@ -42,7 +42,7 @@ build-docker-image:
     - ls -al
     - echo "test======================="
     - docker version
-    - docker build -t $CI_REGISTRY_IMAGE:vocabulary-frontend_v$CI_COMMIT_TAG .
+    # - docker build -t $CI_REGISTRY_IMAGE:vocabulary-frontend_v$CI_COMMIT_TAG .
 
 push-to-registry:
   stage: docker-image

@@ -1,14 +1,14 @@
 stages:
-    # - build
-    # - docker-image
+    - build
+    - docker-image
     - deploy
 
-# workflow:
-#   rules:
-#     # TEST CI_COMMIT_BRANCH
-#     - if: ($CI_COMMIT_TAG != null || $CI_COMMIT_BRANCH == "chore/cicd")
-#       when: always
-#     - when: never
+workflow:
+  rules:
+    # TEST CI_COMMIT_BRANCH
+    - if: ($CI_COMMIT_TAG != null || $CI_COMMIT_BRANCH == "chore/cicd")
+      when: always
+    - when: never
 
 # TODO testing
 # testing:
@@ -19,35 +19,35 @@ stages:
 #   script:
 #     - echo "some code test"
 
-# build:
-#   stage: build
-#   tags:
-#     - dev-runner3
-#   image: node:14.17.2
-#   # needs:
-#   #   - testing
-#   artifacts:
-#     expire_in: '2 weeks and 1 day'
-#     when: on_success
-#     paths:
-#       - dist
-#   script:
-#     - yarn install
-#     - yarn build
+build:
+  stage: build
+  tags:
+    - dev-runner3
+  image: node:14.17.2
+  # needs:
+  #   - testing
+  artifacts:
+    expire_in: '2 weeks and 1 day'
+    when: on_success
+    paths:
+      - dist
+  script:
+    - yarn install
+    - yarn build
 
-# docker-image:
-#   stage: docker-image
-#   tags:
-#     - dev-runner3
-#   image: docker:18.09.7
-#   dependencies:
-#     - build
-#   before_script:
-#     - docker login -u "$CI_REGISTRY_USER" -p $CI_REGISTRY_PASSWORD "$CI_REGISTRY"
-#   script:
-#     - docker build -t $CI_REGISTRY_IMAGE:vocabulary-frontend_v$CI_COMMIT_TAG .
-#     # push to gitlab registry
-#     - docker push $CI_REGISTRY_IMAGE:vocabulary-frontend_v$CI_COMMIT_TAG
+docker-image:
+  stage: docker-image
+  tags:
+    - dev-runner3
+  image: docker:18.09.7
+  dependencies:
+    - build
+  before_script:
+    - docker login -u "$CI_REGISTRY_USER" -p $CI_REGISTRY_PASSWORD "$CI_REGISTRY"
+  script:
+    - docker build -t $CI_REGISTRY_IMAGE:vocabulary-frontend_v$CI_COMMIT_TAG .
+    # push to gitlab registry
+    - docker push $CI_REGISTRY_IMAGE:vocabulary-frontend_v$CI_COMMIT_TAG
 
 deploy:
   stage: deploy

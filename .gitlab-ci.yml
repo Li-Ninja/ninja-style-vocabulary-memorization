@@ -1,5 +1,6 @@
 stages:
-    - build
+#TEST ignore build
+    # - build
     - docker-image
     - deploy
 
@@ -10,24 +11,24 @@ workflow:
       when: always
     - when: never
 
-testing:
-  stage: build
-  tags:
-    - dev-runner2
-  image: node:14.17.2
-  script:
-    - echo "some code test"
+# testing:
+#   stage: build
+#   tags:
+#     - dev-runner2
+#   image: node:14.17.2
+#   script:
+#     - echo "some code test"
 
-build:
-  stage: build
-  tags:
-    - dev-runner2
-  image: node:14.17.2
-  needs:
-    - testing
-  script:
-    - yarn install
-    - yarn build
+# build:
+#   stage: build
+#   tags:
+#     - dev-runner2
+#   image: node:14.17.2
+#   needs:
+#     - testing
+#   script:
+#     - yarn install
+#     - yarn build
 
 build-docker-image:
   stage: docker-image

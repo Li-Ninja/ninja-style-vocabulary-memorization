@@ -68,3 +68,6 @@ deploy:
       docker-compose down &&
       docker-compose up -d
       "
+  environment:
+    name: dev
+    url: http://$GCP_VOCABULARY_FRONTEND_SERVER

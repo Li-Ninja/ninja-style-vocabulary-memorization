@@ -35,28 +35,18 @@ build:
     - yarn install
     - yarn build
 
-build-docker-image:
+docker-image:
   stage: docker-image
   tags:
     - dev-runner3
   image: docker:18.09.7
   dependencies:
     - build
-  script:
-    - docker build -t $CI_REGISTRY_IMAGE:vocabulary-frontend_v$CI_COMMIT_TAG .
-
-push-to-registry:
-  stage: docker-image
-  tags:
-    - dev-runner3
-  needs:
-    - build-docker-image
-  image: docker:18.09.7
-  dependencies:
-    - build-docker-image
   before_script:
     - docker login -u "$CI_REGISTRY_USER" -p $CI_REGISTRY_PASSWORD "$CI_REGISTRY"
   script:
+    - docker build -t $CI_REGISTRY_IMAGE:vocabulary-frontend_v$CI_COMMIT_TAG .
+    # push to gitlab registry
     - docker push $CI_REGISTRY_IMAGE:vocabulary-frontend_v$CI_COMMIT_TAG
 
 deploy:

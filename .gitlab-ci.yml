@@ -1,11 +1,9 @@
 test-ssh-on-gcp:
   before_script:
     - eval $(ssh-agent -s)
-    - echo "print key"
-    - echo "$GCP_PRIVATE_KEY"
     - ssh-add <(echo "$GCP_PRIVATE_KEY")
   script:
-    - ssh -o StrictHostKeyChecking=no $GCP_USER@GCP_VOCABULARY_FRONTEND_SERVER "ls -al"
+    - ssh -o StrictHostKeyChecking=no $GCP_USER@$GCP_VOCABULARY_FRONTEND_SERVER "ls -al"
 
 # stages:
 #     - build

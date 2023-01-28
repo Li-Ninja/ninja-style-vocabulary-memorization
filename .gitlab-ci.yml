@@ -57,4 +57,9 @@ deploy:
     - eval $(ssh-agent -s)
     - ssh-add <(echo "$GCP_PRIVATE_KEY")
   script:
-    - ssh -o StrictHostKeyChecking=no $GCP_USER@$GCP_VOCABULARY_FRONTEND_SERVER "ls -al"
+    - scp -o StrictHostKeyChecking=no ./docker-compose.yml
+      $GCP_USER@$GCP_VOCABULARY_FRONTEND_SERVER:/root
+    - ssh -o StrictHostKeyChecking=no $GCP_USER@$GCP_VOCABULARY_FRONTEND_SERVER "
+      docker-compose down &&
+      docker-compose up -d
+      "

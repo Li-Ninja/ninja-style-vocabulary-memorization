@@ -53,6 +53,7 @@ deploy:
   stage: deploy
   tags:
     - dev-runner3
+  image: docker:stable
   before_script:
     - eval $(ssh-agent -s)
     - ssh-add <(echo "$GCP_PRIVATE_KEY")

@@ -54,6 +54,7 @@ deploy:
   tags:
     - dev-runner3
   before_script:
+    - "which ssh-agent || ( apt-get update -y && apt-get -y install openssh-client)"
     - eval $(ssh-agent -s)
     - ssh-add <(echo "$GCP_PRIVATE_KEY")
   script:

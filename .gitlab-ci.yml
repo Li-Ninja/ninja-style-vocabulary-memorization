@@ -1,6 +1,5 @@
 stages:
-#TEST ignore build
-    # - build
+    - build
     - docker-image
     - deploy
 
@@ -11,43 +10,38 @@ workflow:
       when: always
     - when: never
 
+# TODO testing
 # testing:
 #   stage: build
 #   tags:
-#     - dev-runner2
+#     - dev-runner3
 #   image: node:14.17.2
 #   script:
 #     - echo "some code test"
 
-# build:
-#   stage: build
-#   tags:
-#     - dev-runner2
-#   image: node:14.17.2
-#   needs:
-#     - testing
-#   script:
-#     - yarn install
-#     - yarn build
+build:
+  stage: build
+  tags:
+    - dev-runner3
+  image: node:14.17.2
+  # needs:
+  #   - testing
+  script:
+    - yarn install
+    - yarn build
 
 build-docker-image:
   stage: docker-image
   tags:
     - dev-runner3
   image: docker:18.09.7
-  services:
-    - docker:18.09.7-dind
   script:
-    - echo "test======================="
-    - ls -al
-    - echo "test======================="
-    - docker version
-    # - docker build -t $CI_REGISTRY_IMAGE:vocabulary-frontend_v$CI_COMMIT_TAG .
+    - docker build -t $CI_REGISTRY_IMAGE:vocabulary-frontend_v$CI_COMMIT_TAG .
 
 push-to-registry:
   stage: docker-image
   tags:
-    - dev-runner2
+    - dev-runner3
   needs:
     - build-docker-image
   image: docker:18.09.7
@@ -59,6 +53,6 @@ push-to-registry:
 deploy:
   stage: deploy
   tags:
-    - dev-runner2
+    - dev-runner3
   script:
     - echo "hello deploy"

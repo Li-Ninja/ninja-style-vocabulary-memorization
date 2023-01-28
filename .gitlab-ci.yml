@@ -41,11 +41,7 @@ build-docker-image:
     - echo "test======================="
     - ls -al
     - echo "test======================="
-    - groupadd -f docker
-    - usermod -aG docker $USER
-    - $USER
-    - newgrp docker
-    - groups
+    - docker version
     - docker build -t $CI_REGISTRY_IMAGE:vocabulary-frontend_v$CI_COMMIT_TAG .
 
 push-to-registry:

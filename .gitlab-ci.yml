@@ -26,6 +26,11 @@ build:
   image: node:14.17.2
   # needs:
   #   - testing
+  artifacts:
+    expire_in: '2 weeks and 1 day'
+    when: on_success
+    paths:
+      - dist
   script:
     - yarn install
     - yarn build

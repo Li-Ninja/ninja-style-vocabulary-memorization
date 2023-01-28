@@ -37,6 +37,9 @@ build-docker-image:
   services:
     - docker:18.09.7-dind
   script:
+    - echo "test======================="
+    - ls -al
+    - echo "test======================="
     - groupadd -f docker
     - usermod -aG docker $USER
     - $USER

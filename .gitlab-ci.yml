@@ -1,9 +1,9 @@
 stages:
-    # - build
-    # - docker-image
+    - build
+    - docker-image
     - deploy
 
-.workflow:
+workflow:
   rules:
     # TEST CI_COMMIT_BRANCH
     - if: ($CI_COMMIT_TAG != null || $CI_COMMIT_BRANCH == "chore/cicd")
@@ -19,7 +19,7 @@ stages:
 #   script:
 #     - echo "some code test"
 
-.build:
+build:
   stage: build
   tags:
     - dev-runner3
@@ -35,7 +35,7 @@ stages:
     - yarn install
     - yarn build
 
-.docker-image:
+docker-image:
   stage: docker-image
   tags:
     - dev-runner3

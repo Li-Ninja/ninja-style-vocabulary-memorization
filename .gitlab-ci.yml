@@ -66,8 +66,8 @@ deploy:
       export IMAGE_NAME=$CI_REGISTRY_IMAGE:vocabulary-frontend_v$CI_COMMIT_TAG
       export COMPOSE_PROJECT_NAME=front_stage
 
-      sudo docker-compose down &&
-      sudo docker-compose up -d
+      docker-compose down &&
+      docker-compose up -d
       "
   environment:
     name: dev

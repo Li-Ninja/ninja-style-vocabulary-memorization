@@ -13,7 +13,7 @@ workflow:
 # testing:
 #   stage: build
 #   tags:
-#     - dev-runner3
+#     - dev-runner
 #   image: node:14.17.2
 #   script:
 #     - echo "some code test"
@@ -21,7 +21,7 @@ workflow:
 build:
   stage: build
   tags:
-    - dev-runner3
+    - dev-runner
   image: node:14.17.2
   # needs:
   #   - testing
@@ -37,7 +37,7 @@ build:
 docker-image:
   stage: docker-image
   tags:
-    - dev-runner3
+    - dev-runner
   image: docker:18.09.7
   dependencies:
     - build
@@ -51,7 +51,7 @@ docker-image:
 deploy:
   stage: deploy
   tags:
-    - dev-runner3
+    - dev-runner
   image: docker:stable
   before_script:
     - eval $(ssh-agent -s)

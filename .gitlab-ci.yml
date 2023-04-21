@@ -59,6 +59,8 @@ deploy:
     - echo "$CI_REGISTRY_PASSWORD" | docker login -u "$CI_REGISTRY_USER" --password-stdin "$CI_REGISTRY"
 
   script:
+    - echo "$CI_REGISTRY_USER"
+    - echo "$CI_REGISTRY_PASSWORD"
     - scp -o StrictHostKeyChecking=no ./docker-compose.yml $GCP_USER@$GCP_VOCABULARY_FRONTEND_SERVER:/home/$GCP_USER
     - ssh -o StrictHostKeyChecking=no $GCP_USER@$GCP_VOCABULARY_FRONTEND_SERVER "
 

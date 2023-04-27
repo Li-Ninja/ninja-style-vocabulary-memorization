@@ -62,7 +62,7 @@ deploy:
   image: docker:stable
   before_script:
     - eval $(ssh-agent -s)
-    - ssh-add <(echo "$GCP_PRIVATE_KEY")
+    - echo "$GCP_PRIVATE_KEY" | ssh-add -
 
   script:
     - scp -o StrictHostKeyChecking=no ./docker-compose.yml $GCP_USER@$GCP_VOCABULARY_FRONTEND_SERVER:/home/$GCP_USER

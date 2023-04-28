@@ -1,12 +1,13 @@
 {
   "name": "vocabulary",
-  "version": "0.0.1",
+  "version": "0.0.5-16",
   "description": "memorize vocabulary",
   "productName": "vocabulary",
   "author": "Ninja <lininja.tw@gmail.com>",
   "private": true,
   "scripts": {
     "dev": "quasar dev",
+    "build": "quasar build",
     "lint": "eslint --ext .js,.ts,.vue ./",
     "test": "echo \"No test specified\" && exit 0"
   },

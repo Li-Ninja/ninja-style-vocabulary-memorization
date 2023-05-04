@@ -14,7 +14,7 @@ workflow:
 #   stage: build
 #   tags:
 #     - dev-runner
-#   image: node:14.17.2
+#   image: node:16.10.0
 #   script:
 #     - echo "some code test"
 
@@ -22,7 +22,7 @@ build:
   stage: build
   tags:
     - dev-runner
-  image: node:14.17.2
+  image: node:16.10.0
   # needs:
   #   - testing
   artifacts:

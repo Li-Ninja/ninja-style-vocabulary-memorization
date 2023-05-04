@@ -89,7 +89,6 @@ deploy:
       chmod 755 backend_image.txt
     fi;
 
-    export BACKEND_IMAGE_NAME=$(cat backend_image.txt);
     echo BACKEND_IMAGE_NAME is $BACKEND_IMAGE_NAME;
 
     if [ \"$BACKEND_IMAGE_NAME\" = \"\" ]; then

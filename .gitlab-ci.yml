@@ -74,7 +74,7 @@ deploy:
 
     ( echo 'docker ps --format "{{.Image}}" | grep -E "backend"' > backend_image.sh && chmod 755 backend_image.sh )
     docker ps --format "{{.Image}}" | grep -E "backend";
-    ( docker ps --format "{{.Image}}" | grep -E "backend" > backend_image.txt )
+    ( docker ps --format "{{.Image}}" | grep -E "backend" > backend_image )
 
     echo BACKEND_IMAGE_NAME is ${BACKEND_IMAGE_NAME}
 

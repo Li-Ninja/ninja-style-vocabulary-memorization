@@ -79,6 +79,7 @@ deploy:
     export FRONTEND_IMAGE_NAME=$CI_REGISTRY_IMAGE:$CI_COMMIT_TAG &&
     echo FRONTEND_IMAGE_NAME=\"$CI_REGISTRY_IMAGE:$CI_COMMIT_TAG\" > frontend_image;
 
+    cat /home/$GCP_USER/backend_image;
     . /home/$GCP_USER/backend_image;
 
     echo \"$BACKEND_IMAGE_NAME\";

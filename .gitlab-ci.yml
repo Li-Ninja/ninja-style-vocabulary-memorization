@@ -74,7 +74,7 @@ deploy:
 
     '# save BACKEND_IMAGE_NAME'
     echo 'docker ps --format "{{.Image}}" | grep -E "backend"' > backend_image.sh
-    chmod +x backend_image.sh
+    chmod 755 backend_image.sh
 
     '# read BACKEND_IMAGE_NAME'
     export BACKEND_IMAGE_NAME=\$(./backend_image.sh)

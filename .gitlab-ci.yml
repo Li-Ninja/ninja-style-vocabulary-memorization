@@ -71,8 +71,8 @@ deploy:
 
       FRONTEND_IMAGE_NAME=$CI_REGISTRY_IMAGE:$CI_COMMIT_TAG
       BACKEND_IMAGE_NAME=$(docker ps --format "{{.Image}}" | grep -E "backend")
-      if [ -z "$BACKEND_IMAGE_NAME" ];
-        then BACKEND_IMAGE_NAME="registry.gitlab.com/ninja-ccc/vocabulary/vocabulary-backend:latest";
+      if [ "$BACKEND_IMAGE_NAME" = "" ]; then
+        BACKEND_IMAGE_NAME="registry.gitlab.com/ninja-ccc/vocabulary/vocabulary-backend:latest"
       fi
 
       export FRONTEND_IMAGE_NAME

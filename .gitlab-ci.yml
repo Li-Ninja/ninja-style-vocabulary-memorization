@@ -79,13 +79,15 @@ deploy:
     fi;
 
     export FRONTEND_IMAGE_NAME=$CI_REGISTRY_IMAGE:$CI_COMMIT_TAG &&
-    echo \"FRONTEND_IMAGE_NAME=\"$CI_REGISTRY_IMAGE:$CI_COMMIT_TAG\"\" > frontend_image
+    echo FRONTEND_IMAGE_NAME=\"$CI_REGISTRY_IMAGE:$CI_COMMIT_TAG\" > frontend_image;
+
+    export BACKEND_IMAGE_NAME=\"\";
 
     echo load backend_image 1;
     . /home/$GCP_USER/backend_image;
     echo load backend_image 2;
 
-    echo BACKEND_IMAGE_NAME;
+    echo $BACKEND_IMAGE_NAME;
 
     docker-compose down &&
     docker-compose up -d"

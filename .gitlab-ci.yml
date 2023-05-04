@@ -76,9 +76,12 @@ deploy:
       echo "backend_image.txt not found, creating a new file"
       touch backend_image.txt
       chmod 755 ./backend_image.txt
-    fi &&
+    fi;
 
-    ( docker ps --format "{{.Image}}" | grep -E "backend" > ./backend_image.txt );
+    {
+      docker ps --format "{{.Image}}" | grep -E "backend" > ./backend_image.txt
+    } || true
+
     export BACKEND_IMAGE_NAME=$(cat ./backend_image.txt);
 
     echo BACKEND_IMAGE_NAME is ${BACKEND_IMAGE_NAME};

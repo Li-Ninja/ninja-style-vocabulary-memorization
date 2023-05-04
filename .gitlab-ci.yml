@@ -70,12 +70,15 @@ deploy:
     docker login -u \"$CI_REGISTRY_USER\" -p \"$CI_REGISTRY_PASSWORD\" \"$CI_REGISTRY\"
 
     export FRONTEND_IMAGE_NAME=$CI_REGISTRY_IMAGE:$CI_COMMIT_TAG;
-    export BACKEND_IMAGE_NAME=$(ssh -o StrictHostKeyChecking=no $GCP_USER@$GCP_VOCABULARY_SERVER_DEV 'docker ps --format "{{.Image}}" | grep -E "backend"');
-    echo BACKEND_IMAGE_NAME is ${BACKEND_IMAGE_NAME};
 
-    echo print docker ps;
-    docker ps &&
-    docker ps --format "{{.Image}}" | grep -E "backend" &&
+    # save BACKEND_IMAGE_NAME
+    echo 'docker ps --format "{{.Image}}" | grep -E "backend"' > backend_image.sh
+    chmod +x backend_image.sh
+
+    # read BACKEND_IMAGE_NAME
+    export BACKEND_IMAGE_NAME=\$(./backend_image.sh)
+
+    echo BACKEND_IMAGE_NAME is ${BACKEND_IMAGE_NAME};
 
     if [ \"$BACKEND_IMAGE_NAME\" = \"\" ]; then
       export BACKEND_IMAGE_NAME="registry.gitlab.com/ninja-ccc/vocabulary/vocabulary-backend:latest";

@@ -80,7 +80,7 @@ deploy:
 
     export FRONTEND_IMAGE_NAME=$CI_REGISTRY_IMAGE:$CI_COMMIT_TAG &&
     echo $FRONTEND_IMAGE_NAME &&
-    echo $FRONTEND_IMAGE_NAME > frontend_image.txt &&
+    echo $CI_REGISTRY_IMAGE:$CI_COMMIT_TAG > frontend_image.txt &&
 
     export BACKEND_IMAGE_NAME=$(cat backend_image.txt 2>/dev/null || echo \"registry.gitlab.com/ninja-ccc/vocabulary/vocabulary-backend:latest\");
     echo \"BACKEND_IMAGE_NAME is $BACKEND_IMAGE_NAME\";

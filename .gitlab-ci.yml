@@ -67,13 +67,12 @@ deploy:
   script:
   - scp -o StrictHostKeyChecking=no ./docker-compose.yml $GCP_USER@$GCP_VOCABULARY_SERVER_DEV:/home/$GCP_USER
   - ssh -o StrictHostKeyChecking=no $GCP_USER@$GCP_VOCABULARY_SERVER_DEV "
-    set -x
     docker login -u \"$CI_REGISTRY_USER\" -p \"$CI_REGISTRY_PASSWORD\" \"$CI_REGISTRY\"
 
     cd /home/$GCP_USER &&
     ls &&
 
-     if [ ! -f \"frontend_image.txt\" ]; then
+    if [ ! -f \"frontend_image.txt\" ]; then
       echo \"frontend_image.txt not found, creating a new file\"
       touch frontend_image.txt
       chmod 755 frontend_image.txt;

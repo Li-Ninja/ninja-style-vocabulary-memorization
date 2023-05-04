@@ -69,9 +69,6 @@ deploy:
   - ssh -o StrictHostKeyChecking=no $GCP_USER@$GCP_VOCABULARY_SERVER_DEV "
     docker login -u \"$CI_REGISTRY_USER\" -p \"$CI_REGISTRY_PASSWORD\" \"$CI_REGISTRY\"
 
-    cd /home/$GCP_USER &&
-    ls &&
-
     if [ ! -f \"frontend_image\" ]; then
       echo \"frontend_image not found, creating a new file\";
       touch frontend_image;
@@ -89,7 +86,7 @@ deploy:
 
     if [ \"$BACKEND_IMAGE_NAME\" = \"\" ]; then
       echo \"BACKEND_IMAGE_NAME is empty, set latest version\";
-      export $BACKEND_IMAGE_NAME=\"registry.gitlab.com/ninja-ccc/vocabulary/vocabulary-backend:latest\";
+      BACKEND_IMAGE_NAME=\"registry.gitlab.com/ninja-ccc/vocabulary/vocabulary-backend:latest\";
     fi;
 
     docker-compose down &&

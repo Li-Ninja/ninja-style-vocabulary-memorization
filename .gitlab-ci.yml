@@ -83,11 +83,14 @@ deploy:
 
     export BACKEND_IMAGE_NAME=\"\";
 
-    echo load backend_image 1;
     . /home/$GCP_USER/backend_image;
-    echo load backend_image 2;
 
-    echo $BACKEND_IMAGE_NAME;
+    echo \"$BACKEND_IMAGE_NAME\";
+
+    if [ \"$BACKEND_IMAGE_NAME\" = \"\" ]; then
+      echo \"BACKEND_IMAGE_NAME is empty, set latest version\";
+      export $BACKEND_IMAGE_NAME=\"registry.gitlab.com/ninja-ccc/vocabulary/vocabulary-backend:latest\";
+    fi;
 
     docker-compose down &&
     docker-compose up -d"

@@ -73,8 +73,8 @@ deploy:
     ls &&
 
     if [ ! -f \"frontend_image.txt\" ]; then
-      echo \"frontend_image.txt not found, creating a new file\"
-      touch frontend_image.txt
+      echo \"frontend_image.txt not found, creating a new file\";
+      touch frontend_image.txt;
       chmod 755 frontend_image.txt;
     fi;
 

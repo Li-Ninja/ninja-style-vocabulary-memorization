@@ -72,9 +72,9 @@ deploy:
 
     export FRONTEND_IMAGE_NAME=$CI_REGISTRY_IMAGE:$CI_COMMIT_TAG &&
 
-    ( echo 'docker ps --format "{{.Image}}" | grep -E "backend"' > backend_image.sh && chmod 755 backend_image.sh )
-    docker ps --format "{{.Image}}" | grep -E "backend";
-    ( docker ps --format "{{.Image}}" | grep -E "backend" > backend_image )
+    docker ps --format "{{.Image}}" | grep -E "backend"
+
+    export BACKEND_IMAGE_NAME=$(docker ps --format "{{.Image}}" | grep -E "backend")
 
     echo BACKEND_IMAGE_NAME is ${BACKEND_IMAGE_NAME}
 

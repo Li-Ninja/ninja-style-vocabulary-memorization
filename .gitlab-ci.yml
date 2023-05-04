@@ -79,14 +79,14 @@ deploy:
     fi;
 
     export FRONTEND_IMAGE_NAME=$CI_REGISTRY_IMAGE:$CI_COMMIT_TAG &&
-    echo FRONTEND_IMAGE_NAME==$CI_REGISTRY_IMAGE:$CI_COMMIT_TAG > frontend_image &&
+    echo FRONTEND_IMAGE_NAME=\"$CI_REGISTRY_IMAGE:$CI_COMMIT_TAG\" > frontend_image &&
 
-    source /home/gcp_user/backend_image
+    source /home/$GCP_USER/backend_image;
 
     echo \"BACKEND_IMAGE_NAME is $BACKEND_IMAGE_NAME\";
 
-     if [ \"$BACKEND_IMAGE_NAME\" = \"\" ]; then
-      export $BACKEND_IMAGE_NAME=\"registry.gitlab.com/ninja-ccc/vocabulary/vocabulary-backend:latest\"
+    if [ \"$BACKEND_IMAGE_NAME\" = \"\" ]; then
+      export $BACKEND_IMAGE_NAME=\"registry.gitlab.com/ninja-ccc/vocabulary/vocabulary-backend:latest\";
     fi;
 
     docker-compose down &&

@@ -92,7 +92,6 @@ deploy:
 
     ls;
 
-    export BACKEND_IMAGE_NAME=$(cat backend_image.txt 2>/dev/null || echo \"\");
     echo \"BACKEND_IMAGE_NAME is $BACKEND_IMAGE_NAME\";
 
     if [ \"$BACKEND_IMAGE_NAME\" = \"\" ]; then

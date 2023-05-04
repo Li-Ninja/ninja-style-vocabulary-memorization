@@ -73,8 +73,8 @@ deploy:
     cd /home/$GCP_USER &&
     ls &&
 
-    if [ ! -f "frontend_image.txt" ]; then
-      echo "frontend_image.txt not found, creating a new file"
+    if [ ! -f \"frontend_image.txt\" ]; then
+      echo \"frontend_image.txt not found, creating a new file\"
       touch frontend_image.txt
       chmod 755 frontend_image.txt
     fi;
@@ -84,19 +84,19 @@ deploy:
     export FRONTEND_IMAGE_NAME=$CI_REGISTRY_IMAGE:$CI_COMMIT_TAG &&
     echo $FRONTEND_IMAGE_NAME > frontend_image.txt &&
 
-    if [ ! -f "backend_image.txt" ]; then
-      echo "backend_image.txt not found, creating a new file"
+    if [ ! -f \"backend_image.txt\" ]; then
+      echo \"backend_image.txt not found, creating a new file\"
       touch backend_image.txt
       chmod 755 backend_image.txt
     fi;
 
     ls;
 
-    export BACKEND_IMAGE_NAME=$(cat backend_image.txt 2>/dev/null || echo "");
-    echo "BACKEND_IMAGE_NAME is $BACKEND_IMAGE_NAME";
+    export BACKEND_IMAGE_NAME=$(cat backend_image.txt 2>/dev/null || echo \"\");
+    echo \"BACKEND_IMAGE_NAME is $BACKEND_IMAGE_NAME\";
 
-    if [ "$BACKEND_IMAGE_NAME" = "" ]; then
-      export BACKEND_IMAGE_NAME="registry.gitlab.com/ninja-ccc/vocabulary/vocabulary-backend:latest"
+    if [ \"$BACKEND_IMAGE_NAME\" = \"\" ]; then
+      export BACKEND_IMAGE_NAME=\"registry.gitlab.com/ninja-ccc/vocabulary/vocabulary-backend:latest\"
     fi;
 
     docker-compose down

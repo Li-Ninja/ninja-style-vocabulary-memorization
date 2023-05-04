@@ -1,4 +1,4 @@
-FROM node:16.10.0
+FROM node:16.10.0-slim
 
 WORKDIR /app
 # also can use .dockerignore filter didn't use files

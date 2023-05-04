@@ -71,7 +71,11 @@ deploy:
 
     export FRONTEND_IMAGE_NAME=$CI_REGISTRY_IMAGE:$CI_COMMIT_TAG;
     export BACKEND_IMAGE_NAME=$(ssh -o StrictHostKeyChecking=no $GCP_USER@$GCP_VOCABULARY_SERVER_DEV 'docker ps --format "{{.Image}}" | grep -E "backend"');
-    echo BACKEND_IMAGE_NAME is ${BACKEND_IMAGE_NAME}
+    echo BACKEND_IMAGE_NAME is ${BACKEND_IMAGE_NAME};
+
+    echo print docker ps;
+    docker ps &&
+    docker ps --format "{{.Image}}" | grep -E "backend" &&
 
     if [ \"$BACKEND_IMAGE_NAME\" = \"\" ]; then
       export BACKEND_IMAGE_NAME="registry.gitlab.com/ninja-ccc/vocabulary/vocabulary-backend:latest";

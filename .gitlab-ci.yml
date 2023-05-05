@@ -66,7 +66,7 @@ deploy:
 
   script:
   - scp -o StrictHostKeyChecking=no ./docker-compose.yml $GCP_USER@$GCP_VOCABULARY_SERVER_DEV:/home/$GCP_USER
-  - ssh -i -o StrictHostKeyChecking=no $GCP_USER@$GCP_VOCABULARY_SERVER_DEV bash
+  - ssh -o StrictHostKeyChecking=no $GCP_USER@$GCP_VOCABULARY_SERVER_DEV bash
   - ls
   - docker ps
   - exit

@@ -75,9 +75,7 @@ deploy:
       echo \"BACKEND_IMAGE_NAME is empty, set latest version\";
       export BACKEND_IMAGE_NAME="registry.gitlab.com/ninja-ccc/vocabulary/vocabulary-backend:latest";
     fi
-  - docker-compose down
-  - docker-compose up -d
-  - docker logout "$CI_REGISTRY"
+  - docker-compose down; docker-compose up -d; docker logout "$CI_REGISTRY"
   - exit
 
   environment:

@@ -1,6 +1,6 @@
 import { boot } from 'quasar/wrappers';
-import { useApi } from '@/composables/useApi';
+import { bootApi } from '@/composables/useApi';
 
-export default boot(() => {
-  useApi();
+export default boot(({ router }) => {
+  bootApi(router);
 });

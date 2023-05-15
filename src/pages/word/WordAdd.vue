@@ -24,18 +24,18 @@ function onReset() {
 }
 
 async function onSubmit() {
-  const data = await postWordList(postList.value);
+  const res = await postWordList(postList.value);
 
-  if (data.status === HttpStatusCode.Ok) {
+  if (res?.status === HttpStatusCode.Ok) {
     Notify.create({
-      message: data.statusText,
+      message: res.statusText,
       color: 'primary',
     });
 
     router.push({ name: MenuEnum.Word });
   } else {
     Notify.create({
-      message: data.statusText,
+      message: res?.statusText,
       color: 'negative',
     });
   }

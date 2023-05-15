@@ -30,18 +30,18 @@ watch(() => reviewWordList, () => {
 }, { deep: true });
 
 async function sendData() {
-  const data = await postReviewWordList(reviewWordPostList.value);
+  const res = await postReviewWordList(reviewWordPostList.value);
 
-  if (data.status === HttpStatusCode.Ok) {
+  if (res?.status === HttpStatusCode.Ok) {
     Notify.create({
-      message: data.statusText,
+      message: res?.statusText,
       color: 'primary',
     });
 
     void getReviewWordList();
   } else {
     Notify.create({
-      message: data.statusText,
+      message: res?.statusText,
       color: 'negative',
     });
   }

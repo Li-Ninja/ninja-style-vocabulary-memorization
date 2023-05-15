@@ -19,15 +19,19 @@ export const useApiReviewStore = defineStore('apiReview', () => {
   });
 
   async function getReviewWordList() {
-    const data = await useReviewApi().getReviewWordList();
+    const res = await useReviewApi().getReviewWordList();
 
-    state.reviewWordList = data;
+    if (res?.data.data) {
+      state.reviewWordList = res.data.data;
+    }
   }
 
   async function getReviewLogList() {
-    const data = await useReviewApi().getReviewLogList();
+    const res = await useReviewApi().getReviewLogList();
 
-    state.reviewLogList = data;
+    if (res?.data.data) {
+      state.reviewLogList = res.data.data;
+    }
   }
 
   async function postReviewWordList(postData: ReviewWordPost[]) {

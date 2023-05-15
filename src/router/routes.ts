@@ -55,6 +55,11 @@ const routes: RouteRecordRaw[] = [
       },
     ],
   },
+  {
+    path: '/login',
+    name: MenuEnum.Login,
+    component: () => import('@/pages/Login.vue'),
+  },
 
   // Always leave this as last one,
   // but you can also remove it

@@ -1,4 +1,5 @@
 export enum MenuEnum {
+  Login = 'Login',
   Home = 'Home',
   Record = 'Record',
 

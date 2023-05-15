@@ -1,5 +1,5 @@
 import { useApi } from '@/composables/useApi';
-import { WordPost } from '@/types/word';
+import { Word, WordPost } from '@/types/word';
 
 const { getApi, postApi } = useApi();
 
@@ -10,7 +10,7 @@ export function useWordApi() {
   };
 
   function getWordList() {
-    return getApi(url.wordList);
+    return getApi<Word[]>(url.wordList);
   }
 
   function postWord(postData: WordPost[]) {

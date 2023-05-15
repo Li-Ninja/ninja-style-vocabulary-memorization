@@ -14,9 +14,11 @@ export const useApiWordStore = defineStore('apiWord', () => {
   });
 
   async function getWordList() {
-    const data = await useWordApi().getWordList();
+    const res = await useWordApi().getWordList();
 
-    state.wordList = data;
+    if (res?.data?.data) {
+      state.wordList = res.data.data;
+    }
   }
 
   function postWordList(postData: WordPost[]) {

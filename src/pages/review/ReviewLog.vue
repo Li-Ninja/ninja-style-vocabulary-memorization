@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { QTableColumn } from 'quasar';
 import { storeToRefs } from 'pinia';
-import { MenuEnum } from '@/enums/common.enum';
 import { useApiReviewStore } from '@/apiStores/apiReview.store';
 import { ReviewLog } from '@/types/review';
 
@@ -61,18 +60,11 @@ const columns: Array<QTableColumn<ReviewLog>> = [
   <div class="q-pa-md">
     <div class="row">
       <q-btn
-        class="col-6"
+        class="col-12"
         @click="getReviewLogList"
         color="primary"
       >
         重新搜尋
-      </q-btn>
-      <q-btn
-        class="col-6"
-        :to="{ name: MenuEnum.WordAdd }"
-        color="secondary"
-      >
-        增加
       </q-btn>
     </div>
     <q-table

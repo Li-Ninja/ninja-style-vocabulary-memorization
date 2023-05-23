@@ -9,15 +9,9 @@ import { Router } from 'vue-router';
 import { useLocalStorage } from '@/utils/localStorage.util';
 import { MenuEnum } from '@/enums/common.enum';
 import { LocalAxiosRequestConfig } from '@/types/auth';
+import { ApiResponseData } from '@/types/api';
 
 const { getToken } = useLocalStorage();
-
-interface ApiResponseData<D> {
-  data: D;
-  message?: string;
-  error?: string;
-  statusCode?: number;
-}
 
 type ApiResponse<D> = AxiosResponse<ApiResponseData<D>, any> | undefined;
 type AsyncApiResponse<D> = Promise<ApiResponse<D>>;

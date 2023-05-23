@@ -4,9 +4,13 @@ import { onMounted, onBeforeUnmount } from 'vue';
 import { useSocketIo } from '@/composables/useSocketIo';
 import { ApiResponseData } from '@/types/api';
 
-const { socketIo } = useSocketIo();
+const socketIo = useSocketIo();
 
 onMounted(() => {
+  if (!socketIo) {
+    return;
+  }
+
   socketIo.on('wordReviewNotify', (data: ApiResponseData<{ hasReviewWord: boolean; count: number }>) => {
     if (data.data.hasReviewWord) {
       Notify.create({
@@ -18,6 +22,10 @@ onMounted(() => {
 });
 
 onBeforeUnmount(() => {
+  if (!socketIo) {
+    return;
+  }
+
   socketIo.off('wordReviewNotify');
 });
 

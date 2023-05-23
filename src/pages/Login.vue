@@ -3,6 +3,7 @@ import { HttpStatusCode } from 'axios';
 import { Notify } from 'quasar';
 import { ref, Ref } from 'vue';
 import { useRouter } from 'vue-router';
+import { bootSocketIo } from '@/composables/useSocketIo';
 import { useAuthApi } from '@/apis/auth.api';
 import { useLocalStorage } from '@/utils/localStorage.util';
 import { LoginPost } from '@/types/auth';
@@ -20,7 +21,7 @@ async function login() {
   if (res?.status === HttpStatusCode.Ok) {
     if (res?.data) {
       useLocalStorage().setToken(res.data.data.token);
-
+      bootSocketIo(process.env.API_DOMAIN);
       router.push({ name: MenuEnum.Home });
     }
   } else {

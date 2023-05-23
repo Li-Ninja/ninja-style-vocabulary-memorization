@@ -1,7 +1,7 @@
 import { io, Socket } from 'socket.io-client';
 import { useLocalStorage } from '@/utils/localStorage.util';
 
-let socketIo: Socket;
+let socketIo: Socket | undefined;
 const { getToken } = useLocalStorage();
 
 export function bootSocketIo(url: string) {
@@ -21,11 +21,10 @@ export function bootSocketIo(url: string) {
 
   socketIo.on('disconnect', () => {
     // socket.io disconnected
+    socketIo = undefined;
   });
 }
 
 export function useSocketIo() {
-  return {
-    socketIo,
-  };
+  return socketIo;
 }

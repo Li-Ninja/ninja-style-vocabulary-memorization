@@ -36,7 +36,6 @@ module.exports = configure(ctx => ({
   // https://v2.quasar.dev/quasar-cli-webpack/boot-files
   boot: [
     'api',
-    'socketIo',
     'store',
   ],
 

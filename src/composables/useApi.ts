@@ -9,15 +9,10 @@ import { Router } from 'vue-router';
 import { useLocalStorage } from '@/utils/localStorage.util';
 import { MenuEnum } from '@/enums/common.enum';
 import { LocalAxiosRequestConfig } from '@/types/auth';
+import { ApiResponseData } from '@/types/api';
+import { useSocketIo } from './useSocketIo';
 
 const { getToken } = useLocalStorage();
-
-interface ApiResponseData<D> {
-  data: D;
-  message?: string;
-  error?: string;
-  statusCode?: number;
-}
 
 type ApiResponse<D> = AxiosResponse<ApiResponseData<D>, any> | undefined;
 type AsyncApiResponse<D> = Promise<ApiResponse<D>>;
@@ -47,9 +42,16 @@ export function prepareApi(router?: Router) {
       .then(res => res)
       .catch((err: AxiosError<D>) => {
         if (err.response?.status === HttpStatusCode.Forbidden) {
+          const socketIo = useSocketIo();
+
+          if (socketIo) {
+            socketIo.disconnect();
+          }
+
           Dialog.create({
             title: 'Logout',
             message: 'please re-login',
+            persistent: true,
           }).onOk(() => {
             if (!router || router.currentRoute.value.name === MenuEnum.Login) {
               return err.response as ApiResponse<D>;
@@ -69,9 +71,16 @@ export function prepareApi(router?: Router) {
       .then(res => res)
       .catch((err: AxiosError<D>) => {
         if (err.response?.status === HttpStatusCode.Forbidden) {
+          const socketIo = useSocketIo();
+
+          if (socketIo) {
+            socketIo.disconnect();
+          }
+
           Dialog.create({
             title: 'Logout',
             message: 'please re-login',
+            persistent: true,
           }).onOk(() => {
             if (!router || router.currentRoute.value.name === MenuEnum.Login) {
               return err.response as ApiResponse<D>;

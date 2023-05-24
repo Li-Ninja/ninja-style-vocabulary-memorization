@@ -1,5 +1,19 @@
 <script setup lang="ts">
+import { useRouter } from 'vue-router';
+import { Dialog } from 'quasar';
 import { MenuEnum } from 'src/enums/common.enum';
+import { useLocalStorage } from '@/utils/localStorage.util';
+import { bootSocketIo, useSocketIo } from '@/composables/useSocketIo';
+
+/** base */
+const socketIo = useSocketIo();
+
+/** check socket */
+if (!socketIo) {
+  bootSocketIo(process.env.API_DOMAIN);
+}
+
+const router = useRouter();
 
 const tabs = [
   {
@@ -25,20 +39,52 @@ const tabs = [
   },
 ];
 
+function logout() {
+  Dialog.create({
+    title: 'Logout',
+    message: 'Are you sure you want to logout?',
+    cancel: true,
+  }).onOk(() => {
+    useLocalStorage().clearToken();
+
+    if (socketIo) {
+      socketIo.disconnect();
+    }
+
+    router.push({ name: MenuEnum.Login });
+  });
+}
+
 </script>
 
 <template>
   <q-layout view="lHh Lpr lFf">
     <q-header elevated>
-      <q-tabs dense>
-        <q-route-tab
-          v-for="tab in tabs"
-          :key="tab.name"
-          :icon="tab.icon"
-          :to="tab.to"
-          :label="tab.name"
-          exact
-        />
+      <q-tabs
+        dense
+        class="row items-center full-width "
+      >
+        <div class="col row">
+          <q-route-tab
+            class="col"
+            v-for="tab in tabs"
+            :key="tab.name"
+            :icon="tab.icon"
+            :to="tab.to"
+            :label="tab.name"
+            exact
+          />
+        </div>
+        <div class="col-shrink">
+          <q-btn
+            @click="logout()"
+            flat
+            padding="md"
+            icon="mdi-logout"
+            color="white"
+            label="Logout"
+          />
+        </div>
       </q-tabs>
     </q-header>
 

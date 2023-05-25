@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { Notify } from 'quasar';
-import { onMounted, onBeforeUnmount } from 'vue';
+import {
+  onBeforeUnmount, onMounted,
+} from 'vue';
 import { useSocketIo } from '@/composables/useSocketIo';
 import { ApiResponseData } from '@/types/api';
 

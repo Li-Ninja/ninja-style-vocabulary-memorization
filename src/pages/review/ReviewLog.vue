@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { QTableColumn } from 'quasar';
 import { storeToRefs } from 'pinia';
+import { QTableColumn } from 'quasar';
 import { useApiReviewStore } from '@/apiStores/apiReview.store';
 import { ReviewLog } from '@/types/review';
 

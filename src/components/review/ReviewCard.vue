@@ -1,7 +1,9 @@
 <script setup lang="ts">
-import { shallowRef } from 'vue';
 import { useVModel } from '@vueuse/core';
-import { ReviewWord, ReviewWordPost } from '@/types/review';
+import { shallowRef } from 'vue';
+import {
+  ReviewWord, ReviewWordPost,
+} from '@/types/review';
 
 const props = defineProps<{
   question: ReviewWord['question'];

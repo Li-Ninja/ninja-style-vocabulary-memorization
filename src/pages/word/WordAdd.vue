@@ -1,8 +1,10 @@
 <script setup lang="ts">
 import { HttpStatusCode } from 'axios';
-import { ref, Ref } from 'vue';
-import { useRouter } from 'vue-router';
 import { Notify } from 'quasar';
+import {
+  Ref, ref,
+} from 'vue';
+import { useRouter } from 'vue-router';
 import { useApiWordStore } from '@/apiStores/apiWord.store';
 import { MenuEnum } from '@/enums/common.enum';
 import { WordPost } from '@/types/word';

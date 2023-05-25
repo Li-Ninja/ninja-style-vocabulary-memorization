@@ -1,12 +1,12 @@
 <script setup lang="ts">
-import {
-  shallowRef,
-  watch,
-  DeepReadonly,
-} from 'vue';
 import { useVModel } from '@vueuse/core';
-import { ReviewWord, ReviewWordPost } from '@/types/review';
+import {
+  DeepReadonly, shallowRef, watch,
+} from 'vue';
 import ReviewCard from '@/components/review/ReviewCard.vue';
+import {
+  ReviewWord, ReviewWordPost,
+} from '@/types/review';
 
 const props = defineProps<{
 reviewWordList: DeepReadonly<ReviewWord[]>;

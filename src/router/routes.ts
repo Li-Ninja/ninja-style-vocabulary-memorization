@@ -1,6 +1,6 @@
-import { RouteRecordRaw } from 'vue-router';
 import { MenuEnum } from 'src/enums/common.enum';
 import { convertFromCamelToKebab } from 'src/utils/common.util';
+import { RouteRecordRaw } from 'vue-router';
 
 const routes: RouteRecordRaw[] = [
   {

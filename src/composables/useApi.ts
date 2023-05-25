@@ -1,16 +1,13 @@
 import axios, {
-  AxiosRequestConfig,
-  AxiosError,
-  AxiosResponse,
-  HttpStatusCode,
+  AxiosError, AxiosRequestConfig, AxiosResponse, HttpStatusCode,
 } from 'axios';
 import { Dialog } from 'quasar';
 import { Router } from 'vue-router';
-import { useLocalStorage } from '@/utils/localStorage.util';
-import { MenuEnum } from '@/enums/common.enum';
-import { LocalAxiosRequestConfig } from '@/types/auth';
-import { ApiResponseData } from '@/types/api';
 import { useSocketIo } from './useSocketIo';
+import { MenuEnum } from '@/enums/common.enum';
+import { ApiResponseData } from '@/types/api';
+import { LocalAxiosRequestConfig } from '@/types/auth';
+import { useLocalStorage } from '@/utils/localStorage.util';
 
 const { getToken } = useLocalStorage();
 

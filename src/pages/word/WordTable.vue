@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import { QTableColumn } from 'quasar';
 import { storeToRefs } from 'pinia';
-import { MenuEnum } from '@/enums/common.enum';
+import { QTableColumn } from 'quasar';
 import { useApiWordStore } from '@/apiStores/apiWord.store';
+import { MenuEnum } from '@/enums/common.enum';
 import { Word } from '@/types/word';
 
 const { getWordList } = useApiWordStore();

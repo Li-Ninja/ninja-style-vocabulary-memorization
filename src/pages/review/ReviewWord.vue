@@ -1,16 +1,13 @@
 <script setup lang="ts">
 import { HttpStatusCode } from 'axios';
-import {
-  ref,
-  shallowRef,
-  watch,
-  Ref,
-} from 'vue';
 import { storeToRefs } from 'pinia';
 import { Notify } from 'quasar';
+import {
+  Ref, ref, shallowRef, watch,
+} from 'vue';
+import { useApiReviewStore } from '@/apiStores/apiReview.store';
 import ReviewCardList from '@/components/review/ReviewCardList.vue';
 import { ReviewWordPost } from '@/types/review';
-import { useApiReviewStore } from '@/apiStores/apiReview.store';
 
 const { getReviewWordList, postReviewWordList } = useApiReviewStore();
 const { reviewWordList } = storeToRefs(useApiReviewStore());

@@ -13,8 +13,8 @@
 /* eslint func-names: 0 */
 /* eslint global-require: 0 */
 
-const { configure } = require('quasar/wrappers');
 const path = require('path');
+const { configure } = require('quasar/wrappers');
 const env = require('./env.js');
 
 module.exports = configure(ctx => ({

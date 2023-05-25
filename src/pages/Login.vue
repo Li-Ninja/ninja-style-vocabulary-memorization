@@ -1,13 +1,15 @@
 <script setup lang="ts">
 import { HttpStatusCode } from 'axios';
 import { Notify } from 'quasar';
-import { ref, Ref } from 'vue';
+import {
+  Ref, ref,
+} from 'vue';
 import { useRouter } from 'vue-router';
-import { bootSocketIo } from '@/composables/useSocketIo';
 import { useAuthApi } from '@/apis/auth.api';
-import { useLocalStorage } from '@/utils/localStorage.util';
-import { LoginPost } from '@/types/auth';
+import { bootSocketIo } from '@/composables/useSocketIo';
 import { MenuEnum } from '@/enums/common.enum';
+import { LoginPost } from '@/types/auth';
+import { useLocalStorage } from '@/utils/localStorage.util';
 
 const router = useRouter();
 const loginPostData: Ref<LoginPost> = ref({

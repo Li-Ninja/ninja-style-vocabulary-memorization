@@ -1,9 +1,11 @@
 <script setup lang="ts">
-import { useRouter } from 'vue-router';
 import { Dialog } from 'quasar';
 import { MenuEnum } from 'src/enums/common.enum';
+import { useRouter } from 'vue-router';
+import {
+  bootSocketIo, useSocketIo,
+} from '@/composables/useSocketIo';
 import { useLocalStorage } from '@/utils/localStorage.util';
-import { bootSocketIo, useSocketIo } from '@/composables/useSocketIo';
 
 /** base */
 const socketIo = useSocketIo();

@@ -26,7 +26,7 @@ function requestHandler(request: AxiosRequestConfig) {
   return request;
 }
 
-export function prepareApi(router?: Router) {
+function prepareApi(router?: Router) {
   const api = axios.create({
     // can last connecting 1 min
     timeout: 60000,

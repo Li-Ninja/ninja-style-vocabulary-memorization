@@ -13,3 +13,8 @@ export enum MenuEnum {
   WordTable = 'WordTable',
   WordAdd = 'WordAdd'
 }
+
+export enum LanguageEnum {
+  'en' = 'en',
+  'zh-tw' = 'zh-tw',
+}

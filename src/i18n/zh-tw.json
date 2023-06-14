@@ -11,5 +11,6 @@
   "password": "密碼",
   "login": "登入",
   "memorizeWords": "背單字",
-  "logout": "登出"
+  "logout": "登出",
+  "haveWordsNeedToReview": "有 {0} 個單字需要複習"
 }

@@ -11,5 +11,6 @@
   "password": "password",
   "login": "login",
   "memorizeWords": "memorize words",
-  "logout": "logout"
+  "logout": "logout",
+  "haveWordsNeedToReview": "have {0} words need to review"
 }

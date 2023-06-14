@@ -1,10 +1,15 @@
 {
   "requiredFill": "必填",
   "MenuEnum": {
-    "Login": "登入頁"
+    "Login": "登入頁",
+    "Home": "首頁",
+    "Word": "單字",
+    "Review": "複習",
+    "ReviewLog": "複習紀錄"
   },
   "account": "帳號",
   "password": "密碼",
   "login": "登入",
-  "memorizeWords": "背單字"
+  "memorizeWords": "背單字",
+  "logout": "登出"
 }

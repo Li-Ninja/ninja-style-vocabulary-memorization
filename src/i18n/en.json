@@ -1,10 +1,15 @@
 {
   "requiredFill": "required fill",
   "MenuEnum": {
-    "Login": "login page"
+    "Login": "login page",
+    "Home": "home",
+    "Word": "word",
+    "Review": "review",
+    "ReviewLog": "review log"
   },
   "account": "account",
   "password": "password",
   "login": "login",
-  "memorizeWords": "memorize words"
+  "memorizeWords": "memorize words",
+  "logout": "logout"
 }

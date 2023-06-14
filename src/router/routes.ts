@@ -16,22 +16,12 @@ const routes: RouteRecordRaw[] = [
       {
         path: convertFromCamelToKebab(MenuEnum.Review),
         name: MenuEnum.Review,
-        redirect: {
-          name: MenuEnum.ReviewWord,
-        },
-        component: () => import('pages/review/Review.vue'),
-        children: [
-          {
-            path: '',
-            name: MenuEnum.ReviewWord,
-            component: () => import('pages/review/ReviewWord.vue'),
-          },
-          {
-            path: convertFromCamelToKebab(MenuEnum.ReviewLog),
-            name: MenuEnum.ReviewLog,
-            component: () => import('pages/review/ReviewLog.vue'),
-          },
-        ],
+        component: () => import('pages/Review.vue'),
+      },
+      {
+        path: convertFromCamelToKebab(MenuEnum.ReviewLog),
+        name: MenuEnum.ReviewLog,
+        component: () => import('pages/review/ReviewLog.vue'),
       },
       {
         path: convertFromCamelToKebab(MenuEnum.Word),

@@ -2,13 +2,16 @@
 import { Dialog } from 'quasar';
 import { MenuEnum } from 'src/enums/common.enum';
 import { useRouter } from 'vue-router';
+import { useI18n } from '@/composables/useI18n';
 import {
-  bootSocketIo, useSocketIo,
+  bootSocketIo,
+  useSocketIo,
 } from '@/composables/useSocketIo';
 import { useLocalStorage } from '@/utils/localStorage.util';
 
 /** base */
 const socketIo = useSocketIo();
+const { t } = useI18n();
 
 /** check socket */
 if (!socketIo) {
@@ -19,24 +22,31 @@ const router = useRouter();
 
 const tabs = [
   {
-    name: MenuEnum.Home,
+    name: t('MenuEnum.Home'),
     icon: 'mdi-home',
     to: {
       name: MenuEnum.Home,
     },
   },
   {
-    name: MenuEnum.Word,
+    name: t('MenuEnum.Word'),
     icon: 'mdi-sticker-text',
     to: {
       name: MenuEnum.Word,
     },
   },
   {
-    name: MenuEnum.Review,
-    icon: 'mdi-file-search',
+    name: '',
+    icon: 'mdi-plus-circle',
     to: {
       name: MenuEnum.Review,
+    },
+  },
+  {
+    name: t('MenuEnum.ReviewLog'),
+    icon: 'mdi-file-search',
+    to: {
+      name: MenuEnum.ReviewLog,
     },
   },
 ];
@@ -61,37 +71,41 @@ function logout() {
 
 <template>
   <q-layout view="lHh Lpr lFf">
-    <q-header elevated>
-      <q-tabs
-        dense
-        class="row items-center full-width "
-      >
-        <div class="col row">
-          <q-route-tab
-            class="col"
-            v-for="tab in tabs"
-            :key="tab.name"
-            :icon="tab.icon"
-            :to="tab.to"
-            :label="tab.name"
-            exact
-          />
-        </div>
-        <div class="col-shrink">
-          <q-btn
-            @click="logout()"
-            flat
-            padding="md"
-            icon="mdi-logout"
-            color="white"
-            label="Logout"
-          />
-        </div>
-      </q-tabs>
-    </q-header>
-
     <q-page-container>
       <router-view />
     </q-page-container>
+
+    <q-footer elevated>
+      <q-tabs
+        dense
+        indicator-color="transparent"
+        active-color="white"
+        class="bg-primary text-grey-5 text-capitalize shadow-2 row"
+      >
+        <q-route-tab
+          class="col"
+          v-for="tab in tabs"
+          :key="tab.name"
+          :icon="tab.icon"
+          :to="tab.to"
+          :label="tab.name"
+          :class="tab.name === '' ? 'iconSize' : ''"
+          exact
+        />
+        <q-tab
+          class="col"
+          icon="mdi-logout"
+          @click="logout"
+          :label="$t('logout')"
+        />
+      </q-tabs>
+    </q-footer>
   </q-layout>
 </template>
+
+<style lang="scss">
+.iconSize [class ~= "q-tab__icon"] {
+  font-size: 48px;
+}
+
+</style>

@@ -4,12 +4,14 @@
     "baseUrl": ".",
     "types": [
       "quasar",
-      "webpack"
+      "webpack",
+      "jest",
+      "node"
     ],
     "paths": {
       "@/*": [
         "src/*"
       ]
-    },
-  },
+    }
+  }
 }

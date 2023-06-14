@@ -2,5 +2,6 @@
 module.exports = {
   extends: [
     '@ninjaccc/eslint-config',
+    '@ninjaccc/eslint-config/jest',
   ]
 };

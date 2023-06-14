@@ -56,9 +56,16 @@ const routes: RouteRecordRaw[] = [
     ],
   },
   {
-    path: '/login',
-    name: MenuEnum.Login,
-    component: () => import('@/pages/Login.vue'),
+    path: '/',
+    component: () => import('layouts/LoginLayout.vue'),
+    redirect: MenuEnum.Login,
+    children: [
+      {
+        path: convertFromCamelToKebab(MenuEnum.Login),
+        name: MenuEnum.Login,
+        component: () => import('pages/Login.vue'),
+      },
+    ],
   },
 
   // Always leave this as last one,

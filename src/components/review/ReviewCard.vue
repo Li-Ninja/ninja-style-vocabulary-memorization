@@ -33,42 +33,39 @@ function sendIsCorrect(val: boolean) {
 
 <template>
   <div>
-    <q-card v-if="!isShowAnswer">
+    <q-card>
       <q-card-section
-        @click="updateIsShowAnswer(true)"
+        @click="updateIsShowAnswer(!isShowAnswer)"
         class="bg-primary text-white cursor-pointer"
       >
+        <q-badge
+          align="top"
+          color="accent"
+          floating
+          class="text-uppercase"
+        >
+          {{ isShowAnswer ? 'A' : 'Q' }}
+        </q-badge>
         <div class="text-h6 text-center">
-          {{ props.question }}
-        </div>
-      </q-card-section>
-    </q-card>
-
-    <q-card v-else>
-      <q-card-section
-        @click="updateIsShowAnswer(false)"
-        class="bg-primary text-white cursor-pointer"
-      >
-        <div class="text-h6 text-center">
-          {{ props.answer }}
+          {{ isShowAnswer ? props.answer : props.question }}
         </div>
       </q-card-section>
 
       <q-card-actions align="around">
         <q-btn
           class="col"
-          @click="sendIsCorrect(true)"
+          :disable="!isShowAnswer"
+          @click="sendIsCorrect(false)"
+          icon="mdi-close-circle"
           flat
-        >
-          答對
-        </q-btn>
+        />
         <q-btn
           class="col"
-          @click="sendIsCorrect(false)"
+          :disable="!isShowAnswer"
+          icon="mdi-checkbox-marked-circle"
+          @click="sendIsCorrect(true)"
           flat
-        >
-          答錯
-        </q-btn>
+        />
       </q-card-actions>
     </q-card>
   </div>

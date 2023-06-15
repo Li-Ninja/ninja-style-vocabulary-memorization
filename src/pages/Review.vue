@@ -1,18 +1,22 @@
 <script setup lang="ts">
 import { HttpStatusCode } from 'axios';
 import { storeToRefs } from 'pinia';
-import { Notify } from 'quasar';
+import {
+  Dialog, Notify,
+} from 'quasar';
 import {
   Ref, ref, shallowRef, watch,
 } from 'vue';
 import { useApiReviewStore } from '@/apiStores/apiReview.store';
 import ReviewCardList from '@/components/review/ReviewCardList.vue';
+import { useI18n } from '@/composables/useI18n';
 import { ReviewWordPost } from '@/types/review';
 
 const { getReviewWordList, postReviewWordList } = useApiReviewStore();
 const { reviewWordList } = storeToRefs(useApiReviewStore());
 const reviewWordPostList: Ref<ReviewWordPost[]> = ref([]);
 const isShowCard = shallowRef(true);
+const { t } = useI18n();
 
 void getReviewWordList();
 
@@ -44,6 +48,20 @@ async function sendData() {
   }
 }
 
+function restart() {
+  Dialog.create({
+    title: t('restart'),
+    message: t('checkRestart'),
+    focus: 'none',
+    ok: {
+      'text-color': 'secondary',
+      flat: true,
+    },
+  }).onOk(() => {
+    void getReviewWordList();
+  });
+}
+
 watch(() => reviewWordPostList, () => {
   const isShow = !!reviewWordPostList.value.find(item => item.isCorrect === null);
 
@@ -57,7 +75,7 @@ watch(() => reviewWordPostList, () => {
 </script>
 
 <template>
-  <div class="row justify-center">
+  <div class="row justify-center items-center full-height">
     <template v-if="isShowCard">
       <ReviewCardList
         class="col-6"
@@ -70,13 +88,18 @@ watch(() => reviewWordPostList, () => {
         <q-btn-group spread>
           <q-btn
             color="primary"
-            label="送出"
-            @click="sendData()"
+            icon="mdi-restart"
+            flat
+            class="text-uppercase"
+            :label="$t('restart')"
+            @click="restart()"
           />
           <q-btn
             color="primary"
-            label="重新練習"
-            @click="getReviewWordList()"
+            icon="mdi-send"
+            class="text-uppercase"
+            :label="$t('submit')"
+            @click="sendData()"
           />
         </q-btn-group>
       </div>

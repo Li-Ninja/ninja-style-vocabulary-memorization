@@ -19,5 +19,7 @@
   "question": "問題",
   "answer": "答案",
   "search": "搜尋",
-  "checkLogout": "你確定要登出嗎？"
+  "checkLogout": "你確定要登出嗎？",
+  "restart": "重新開始",
+  "checkRestart": "你確定要重新開始嗎？"
 }

@@ -79,11 +79,11 @@ function logout() {
 
 <template>
   <q-layout view="lHh Lpr lFf">
-    <q-page-container class="q-pa-lg">
+    <q-page-container class="q-pa-lg fullscreen">
       <router-view />
     </q-page-container>
 
-    <q-footer>
+    <q-footer class="z-max">
       <q-tabs
         dense
         indicator-color="transparent"

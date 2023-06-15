@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import dayjs from 'dayjs';
 import { storeToRefs } from 'pinia';
 import { QTableColumn } from 'quasar';
 import { useApiReviewStore } from '@/apiStores/apiReview.store';
@@ -54,6 +55,10 @@ const columns: Array<QTableColumn<ReviewLog>> = [
   },
 ];
 
+function convertDateTime(dateTime: string) {
+  return dayjs(dateTime).format('YYYY-MM-DD HH:mm:ss');
+}
+
 </script>
 
 <template>
@@ -74,6 +79,14 @@ const columns: Array<QTableColumn<ReviewLog>> = [
       :columns="columns"
       row-key="name"
     >
+      <template #body-cell-createAt="props">
+        <q-td
+          key="createAt"
+          :props="props"
+        >
+          {{ convertDateTime(props.row.createAt) }}
+        </q-td>
+      </template>
       <template #body-cell-reviewInfo="props">
         <q-td
           key="reviewInfo"
@@ -89,10 +102,10 @@ const columns: Array<QTableColumn<ReviewLog>> = [
             count: {{ props.row.reviewInfo.count }}
           </div>
           <div>
-            initialReviewAt: {{ props.row.reviewInfo.initialReviewAt }}
+            initialReviewAt: {{ convertDateTime(props.row.reviewInfo.initialReviewAt) }}
           </div>
           <div>
-            nextReviewAt: {{ props.row.reviewInfo.nextReviewAt }}
+            nextReviewAt: {{ convertDateTime(props.row.reviewInfo.nextReviewAt) }}
           </div>
         </q-td>
       </template>

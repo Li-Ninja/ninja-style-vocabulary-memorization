@@ -83,7 +83,7 @@ function logout() {
       <router-view />
     </q-page-container>
 
-    <q-footer elevated>
+    <q-footer>
       <q-tabs
         dense
         indicator-color="transparent"

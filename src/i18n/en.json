@@ -5,7 +5,8 @@
     "Home": "home",
     "Word": "word",
     "Review": "review",
-    "ReviewLog": "review log"
+    "ReviewLog": "review log",
+    "Setting": "Setting"
   },
   "account": "account",
   "password": "password",
@@ -21,5 +22,10 @@
   "search": "search",
   "checkLogout": "Are you sure you want to logout?",
   "restart": "restart",
-  "checkRestart": "Are you sure you want to restart?"
+  "checkRestart": "Are you sure you want to restart?",
+  "language": "language",
+  "LanguageEnum": {
+    "zhTw": "繁體中文",
+    "En": "English"
+  }
 }

@@ -5,7 +5,8 @@
     "Home": "首頁",
     "Word": "單字",
     "Review": "複習",
-    "ReviewLog": "複習紀錄"
+    "ReviewLog": "複習紀錄",
+    "Setting": "設定"
   },
   "account": "帳號",
   "password": "密碼",
@@ -21,5 +22,10 @@
   "search": "搜尋",
   "checkLogout": "你確定要登出嗎？",
   "restart": "重新開始",
-  "checkRestart": "你確定要重新開始嗎？"
+  "checkRestart": "你確定要重新開始嗎？",
+  "language": "語言",
+  "LanguageEnum": {
+    "zhTw": "繁體中文",
+    "En": "English"
+  }
 }

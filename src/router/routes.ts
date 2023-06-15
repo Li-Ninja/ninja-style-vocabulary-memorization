@@ -43,6 +43,18 @@ const routes: RouteRecordRaw[] = [
           },
         ],
       },
+      {
+        path: convertFromCamelToKebab(MenuEnum.Setting),
+        name: MenuEnum.Setting,
+        component: () => import('pages/Setting.vue'),
+        children: [
+          {
+            path: 'language',
+            name: 'language',
+            component: () => import('@/components/setting/Language.vue'),
+          },
+        ],
+      },
     ],
   },
   {

@@ -19,7 +19,9 @@ export const useApiReviewStore = defineStore('apiReview', () => {
   });
 
   async function getReviewWordList() {
-    const res = await useReviewApi().getReviewWordList();
+    // TODO can review count by custom, but max is 50
+    const count = 10;
+    const res = await useReviewApi().getReviewWordList({ count });
 
     if (res?.data.data) {
       state.reviewWordList = res.data.data;

@@ -30,6 +30,10 @@ export interface ReviewWord extends
   answer: Word['text']['answer'];
 }
 
+export interface ReviewWordQuery {
+  count?: number;
+}
+
 export interface ReviewWordPost extends
   Pick<Review,
   'isCorrect'

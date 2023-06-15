@@ -6,10 +6,7 @@ import {
 } from 'vue';
 import { useRouter } from 'vue-router';
 import { useI18n } from '@/composables/useI18n';
-import {
-  bootSocketIo,
-  useSocketIo,
-} from '@/composables/useSocketIo';
+import { useSocketIo } from '@/composables/useSocketIo';
 import { useLocalStorage } from '@/utils/localStorage.util';
 
 /** base */
@@ -22,11 +19,6 @@ const routeName = shallowRef(router.currentRoute.value.name);
 watch(() => router.currentRoute.value.name, () => {
   routeName.value = router.currentRoute.value.name;
 });
-
-/** check socket */
-if (!socketIo) {
-  bootSocketIo(process.env.API_DOMAIN);
-}
 
 function logout() {
   Dialog.create({

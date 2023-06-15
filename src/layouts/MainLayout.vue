@@ -1,9 +1,19 @@
 <script setup lang="ts">
 import { MenuEnum } from 'src/enums/common.enum';
 import { useI18n } from '@/composables/useI18n';
+import {
+  bootSocketIo,
+  useSocketIo,
+} from '@/composables/useSocketIo';
 
 /** base */
 const { t } = useI18n();
+const socketIo = useSocketIo();
+
+/** check socket */
+if (!socketIo) {
+  bootSocketIo(process.env.API_DOMAIN);
+}
 
 const tabs = [
   {

@@ -12,5 +12,11 @@
   "login": "login",
   "memorizeWords": "memorize words",
   "logout": "logout",
-  "haveWordsNeedToReview": "have {0} words need to review"
+  "haveWordsNeedToReview": "have {0} words need to review",
+  "add": "add",
+  "submit": "submit",
+  "reset": "reset",
+  "question": "question",
+  "answer": "answer",
+  "search": "search"
 }

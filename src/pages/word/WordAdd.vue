@@ -6,6 +6,7 @@ import {
 } from 'vue';
 import { useRouter } from 'vue-router';
 import { useApiWordStore } from '@/apiStores/apiWord.store';
+import { required } from '@/constants/rule.constant';
 import { MenuEnum } from '@/enums/common.enum';
 import { WordPost } from '@/types/word';
 
@@ -47,66 +48,88 @@ function addField() {
   postList.value.push({ ...defaultWordPost });
 }
 
+function removeField(index: number) {
+  postList.value.splice(index, 1);
+}
+
 </script>
 
 <template>
-  <div class="q-pa-md">
-    <q-btn
-      class="q-mb-md"
-      @click="addField()"
-      color="secondary"
-    >
-      增加欄位
-    </q-btn>
+  <div>
+    <q-item>
+      <q-btn
+        class="q-mb-md text-capitalize"
+        @click="addField()"
+        color="secondary"
+        :label="$t('add')"
+      />
+    </q-item>
     <q-form
       @submit="onSubmit"
       @reset="onReset"
     >
-      <div
-        v-for="(word, key) in postList"
-        :key="key"
-        class="q-mb-md row q-col-gutter-md"
-      >
-        <q-field class="col-1">
-          <template #control>
-            {{ key + 1 }}
-          </template>
-        </q-field>
-        <q-input
-          class="col-5"
-          filled
-          type="text"
-          v-model="word.question"
-          label="question"
-          lazy-rules
-          :rules="[ (val) => val && val !== null && val.length > 0 || '必填']"
-        />
-
-        <q-input
-          class="col-5"
-          filled
-          type="text"
-          v-model="word.answer"
-          label="answer"
-          lazy-rules
-          :rules="[ (val) => val && val !== null && val.length > 0 || '必填']"
-        />
-      </div>
-
-      <div>
-        <q-btn
-          label="送出"
-          type="submit"
-          color="primary"
-        />
-        <q-btn
-          label="重置"
-          type="reset"
-          color="primary"
-          flat
-          class="q-ml-sm"
-        />
-      </div>
+      <q-list>
+        <q-item
+          v-for="(word, key) in postList"
+          :key="key"
+          class="row"
+        >
+          <q-item-section class="col-1">
+            <q-field>
+              <template #control>
+                {{ key + 1 }}
+              </template>
+            </q-field>
+          </q-item-section>
+          <q-item-section class="col-5">
+            <q-input
+              class="text-capitalize"
+              filled
+              type="text"
+              v-model="word.question"
+              :label="$t('question')"
+              lazy-rules
+              :rules="[required()]"
+            />
+          </q-item-section>
+          <q-item-section class="col-5">
+            <q-input
+              class="text-capitalize"
+              filled
+              type="text"
+              v-model="word.answer"
+              :label="$t('answer')"
+              lazy-rules
+              :rules="[required()]"
+            />
+          </q-item-section>
+          <q-item-section class="col-1">
+            <q-btn
+              v-if="key !== 0"
+              flat
+              icon="mdi-delete"
+              color="negative"
+              size="md"
+              @click="removeField(key)"
+            />
+          </q-item-section>
+        </q-item>
+        <q-item>
+          <q-btn
+            :label="$t('submit')"
+            class="text-capitalize"
+            type="submit"
+            color="primary"
+          />
+          <q-btn
+            :label="$t('reset')"
+            type="reset"
+            color="primary"
+            flat
+            class="q-ml-sm text-capitalize"
+          />
+        </q-item>
+      </q-list>
     </q-form>
   </div>
 </template>

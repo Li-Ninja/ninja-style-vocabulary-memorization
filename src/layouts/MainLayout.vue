@@ -71,7 +71,7 @@ function logout() {
 
 <template>
   <q-layout view="lHh Lpr lFf">
-    <q-page-container>
+    <q-page-container class="q-pa-lg">
       <router-view />
     </q-page-container>
 

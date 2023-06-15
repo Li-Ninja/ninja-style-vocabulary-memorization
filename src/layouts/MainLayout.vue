@@ -28,10 +28,10 @@ const tabs = [
     },
   },
   {
-    name: t('MenuEnum.ReviewLog'),
-    icon: 'mdi-file-search',
+    name: t('MenuEnum.Chart'),
+    icon: 'mdi-chart-line',
     to: {
-      name: MenuEnum.ReviewLog,
+      name: MenuEnum.Chart,
     },
   },
   {

@@ -57,16 +57,18 @@ const columns: Array<QTableColumn<ReviewLog>> = [
 </script>
 
 <template>
-  <div class="q-pa-md">
-    <div class="row">
-      <q-btn
-        class="col-12"
-        @click="getReviewLogList"
-        color="primary"
-      >
-        重新搜尋
-      </q-btn>
-    </div>
+  <div>
+    <q-item class="q-pa-none q-mb-md">
+      <q-item-section>
+        <q-btn
+          class="text-capitalize"
+          @click="getReviewLogList"
+          color="primary"
+        >
+          {{ $t('search') }}
+        </q-btn>
+      </q-item-section>
+    </q-item>
     <q-table
       :rows="reviewLogList"
       :columns="columns"

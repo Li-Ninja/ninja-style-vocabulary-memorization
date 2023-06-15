@@ -5,8 +5,9 @@
     "Home": "home",
     "Word": "word",
     "Review": "review",
-    "ReviewLog": "review log",
-    "Setting": "Setting"
+    "Setting": "Setting",
+    "Chart": "chart",
+    "ChartReviewLog": "review log"
   },
   "account": "account",
   "password": "password",

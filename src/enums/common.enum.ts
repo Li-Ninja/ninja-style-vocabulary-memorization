@@ -1,13 +1,14 @@
 export enum MenuEnum {
   Login = 'Login',
   Home = 'Home',
-  Record = 'Record',
   Setting = 'Setting',
 
   // Review
   Review = 'Review',
 
-  ReviewLog = 'ReviewLog',
+  // Chart
+  Chart = 'Chart',
+  ChartReviewLog = 'ReviewLog',
 
   // Word
   Word = 'Word',

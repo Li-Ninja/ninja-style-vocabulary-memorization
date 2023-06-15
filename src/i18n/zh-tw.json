@@ -5,8 +5,9 @@
     "Home": "首頁",
     "Word": "單字",
     "Review": "複習",
-    "ReviewLog": "複習紀錄",
-    "Setting": "設定"
+    "Setting": "設定",
+    "Chart": "圖表",
+    "ChartReviewLog": "複習紀錄"
   },
   "account": "帳號",
   "password": "密碼",

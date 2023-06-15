@@ -18,5 +18,6 @@
   "reset": "reset",
   "question": "question",
   "answer": "answer",
-  "search": "search"
+  "search": "search",
+  "checkLogout": "Are you sure you want to logout?"
 }

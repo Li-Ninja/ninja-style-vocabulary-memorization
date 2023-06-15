@@ -53,9 +53,17 @@ const tabs = [
 
 function logout() {
   Dialog.create({
-    title: 'Logout',
-    message: 'Are you sure you want to logout?',
-    cancel: true,
+    title: t('logout'),
+    message: t('checkLogout'),
+    focus: 'cancel',
+    ok: {
+      'text-color': 'secondary',
+      flat: true,
+    },
+    cancel: {
+      'text-color': 'primary',
+      flat: true,
+    },
   }).onOk(() => {
     useLocalStorage().clearToken();
 

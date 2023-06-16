@@ -1,23 +1,32 @@
 import { MenuEnum } from 'src/enums/common.enum';
 import { convertFromCamelToKebab } from 'src/utils/common.util';
 import { RouteRecordRaw } from 'vue-router';
-import { useSocketIo } from '@/composables/useSocketIo';
+import {
+  bootSocketIo, useSocketIo,
+} from '@/composables/useSocketIo';
+import { SocketEventEnum } from '@/enums/socket.enum';
+import { useLocalStorage } from '@/utils/localStorage.util';
+
+const { clearToken } = useLocalStorage();
 
 const routes: RouteRecordRaw[] = [
   {
     path: '/',
     component: () => import('layouts/MainLayout.vue'),
     redirect: MenuEnum.Home,
-    beforeEnter: (_to, _from, next) => {
+    beforeEnter: async (_to, _from, next) => {
       const socketIo = useSocketIo();
 
       if (!socketIo) {
-        next({
-          name: MenuEnum.Login,
-        });
-      } else {
-        next();
+        const event = await bootSocketIo(process.env.API_DOMAIN);
+
+        if (event === SocketEventEnum.ConnectError) {
+          clearToken();
+          next({ name: MenuEnum.Login });
+        }
       }
+
+      next();
     },
     children: [
       {

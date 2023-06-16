@@ -1,30 +1,8 @@
 <script setup lang="ts">
-import { useRouter } from 'vue-router';
 import { useI18n } from '@/composables/useI18n';
-import {
-  bootSocketIo,
-  useSocketIo,
-} from '@/composables/useSocketIo';
 import { MenuEnum } from '@/enums/common.enum';
-import { SocketEventEnum } from '@/enums/socket.enum';
-import { useLocalStorage } from '@/utils/localStorage.util';
 
-/** base */
 const { t } = useI18n();
-const socketIo = useSocketIo();
-const router = useRouter();
-const { clearToken } = useLocalStorage();
-
-/** check socket */
-if (!socketIo) {
-  const event = await bootSocketIo(process.env.API_DOMAIN);
-
-  if (event === SocketEventEnum.ConnectError) {
-    clearToken();
-    router.push({ name: MenuEnum.Login });
-  }
-}
-
 const tabs = [
   {
     name: t('MenuEnum.Home'),

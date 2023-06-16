@@ -56,13 +56,13 @@ function sendIsCorrect(val: boolean) {
           class="col"
           :disable="!isShowAnswer"
           @click="sendIsCorrect(false)"
-          icon="mdi-close-circle"
+          :icon="isShowAnswer ? 'mdi-close-circle' : 'mdi-circle'"
           flat
         />
         <q-btn
           class="col"
           :disable="!isShowAnswer"
-          icon="mdi-checkbox-marked-circle"
+          :icon="isShowAnswer ? 'mdi-checkbox-marked-circle' : 'mdi-circle'"
           @click="sendIsCorrect(true)"
           flat
         />

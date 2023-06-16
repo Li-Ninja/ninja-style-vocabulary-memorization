@@ -75,10 +75,10 @@ watch(() => reviewWordPostList, () => {
 </script>
 
 <template>
-  <div class="row justify-center items-center fullscreen">
+  <div class="row justify-center items-center fullscreen q-mx-md">
     <template v-if="isShowCard">
       <ReviewCardList
-        class="col-6"
+        class="col-12 col-md-8 col-lg-6"
         :review-word-list="reviewWordList"
         :review-word-post-list="reviewWordPostList"
       />

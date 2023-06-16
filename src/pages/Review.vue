@@ -75,7 +75,7 @@ watch(() => reviewWordPostList, () => {
 </script>
 
 <template>
-  <div class="row justify-center items-center full-height">
+  <div class="row justify-center items-center fullscreen">
     <template v-if="isShowCard">
       <ReviewCardList
         class="col-6"

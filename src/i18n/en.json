@@ -28,5 +28,6 @@
   "LanguageEnum": {
     "zhTw": "繁體中文",
     "En": "English"
-  }
+  },
+  "loginAgain": "Please login again"
 }

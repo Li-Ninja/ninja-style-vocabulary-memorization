@@ -1,12 +1,24 @@
 import { MenuEnum } from 'src/enums/common.enum';
 import { convertFromCamelToKebab } from 'src/utils/common.util';
 import { RouteRecordRaw } from 'vue-router';
+import { useSocketIo } from '@/composables/useSocketIo';
 
 const routes: RouteRecordRaw[] = [
   {
     path: '/',
     component: () => import('layouts/MainLayout.vue'),
     redirect: MenuEnum.Home,
+    beforeEnter: (_to, _from, next) => {
+      const socketIo = useSocketIo();
+
+      if (!socketIo) {
+        next({
+          name: MenuEnum.Login,
+        });
+      } else {
+        next();
+      }
+    },
     children: [
       {
         path: convertFromCamelToKebab(MenuEnum.Home),

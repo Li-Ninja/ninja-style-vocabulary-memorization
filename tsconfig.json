@@ -1,6 +1,8 @@
 {
   "extends": "@quasar/app-webpack/tsconfig-preset",
   "compilerOptions": {
+    "module": "es2022",
+    "target": "es2017",
     "baseUrl": ".",
     "types": [
       "quasar",

@@ -1,33 +1,27 @@
-# ninjutsu memorize vocabulary
+# Ninjutsu Memorize Vocabulary
 
-memorize vocabulary
+The genesis of this project was to address the issue of easily forgetting Japanese vocabulary.
+
+During the planning stages of my self-guided trip to Japan, I experimented with various applications and web pages on the market that offered similar functionalities. However, I often found that while they met some specific requirements (Function A), they lacked others (Function B) or the integration was not up to my expectations, resulting in a less than satisfactory user experience.
+
+To rectify this problem, I developed a new web application. In accordance with Ebbinghaus' forgetting curve, short-term memory experiences a 56% rate of forgetting just an hour later. Through my application, users can receive notifications just as a word is on the brink of being forgotten, thereby reinforcing the retention of memory and facilitating its transition into long-term memory.
+
+## Demo
+
+http://vocabulary.ninjaccc.com/
 
 ## Install the dependencies
 ```bash
-yarn
-# or
-npm install
+yarn install
 ```
 
-### Start the app in development mode (hot-code reloading, error reporting, etc.)
+## Start the app in development mode (hot-code reloading, error reporting, etc.)
 ```bash
-quasar dev
+yarn dev
 ```
 
-
-### Lint the files
+## Build the app for production
 ```bash
-yarn lint
-# or
-npm run lint
+yarn build
 ```
 
-
-
-### Build the app for production
-```bash
-quasar build
-```
-
-### Customize the configuration
-See [Configuring quasar.config.js](https://v2.quasar.dev/quasar-cli-webpack/quasar-config-js).

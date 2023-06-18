@@ -156,8 +156,8 @@ module.exports = configure(ctx => ({
     // chainWebpackCustomSW (/* chain */) {},
 
     manifest: {
-      name: 'ninjutsu memorize vocabulary',
-      short_name: 'ninjutsu memorize vocabulary',
+      name: 'Ninjutsu Memorize Vocabulary',
+      short_name: 'Ninjutsu Memorize Vocabulary',
       description: '',
       display: 'standalone',
       orientation: 'portrait',

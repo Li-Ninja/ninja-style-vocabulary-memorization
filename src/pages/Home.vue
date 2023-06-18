@@ -38,9 +38,17 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-  <div class="column top text-capitalize">
+  <div class="column top text-capitalize text-h6">
+    <div class="col-12 row justify-center q-mb-md">
+      <q-img
+        src="ninjaccc.ico"
+        ratio="1"
+        sizes="32px"
+        width="72px"
+      />
+    </div>
     <div class="col-12 text-center">
-      {{ $t('memorizeWords') }}
+      {{ $t('ninjutsuMemorizeVocabulary') }}
     </div>
     <div class="col-12 text-center">
       {{ $t('MenuEnum.Home') }}

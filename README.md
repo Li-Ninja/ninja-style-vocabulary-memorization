@@ -1,4 +1,4 @@
-# vocabulary (vocabulary)
+# ninjutsu memorize vocabulary
 
 memorize vocabulary
 

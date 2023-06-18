@@ -41,8 +41,16 @@ async function login() {
 <template>
   <div class="row justify-center">
     <div class="col-12 row justify-center text-capitalize">
+      <div class="col-12 row justify-center">
+        <q-img
+          src="ninjaccc.ico"
+          ratio="1"
+          sizes="32px"
+          width="72px"
+        />
+      </div>
       <h1 class="col-12 text-center text-h5">
-        {{ $t('memorizeWords') }}
+        {{ $t('ninjutsuMemorizeVocabulary') }}
       </h1>
       <h2 class="col-12 text-center text-h6">
         {{ $t('MenuEnum.Login') }}

@@ -20,7 +20,7 @@ const routes: RouteRecordRaw[] = [
       if (!socketIo) {
         const event = await bootSocketIo(process.env.API_DOMAIN);
 
-        if (event === SocketEventEnum.ConnectError) {
+        if (event === SocketEventEnum.ConnectError || event === SocketEventEnum.Disconnect) {
           clearToken();
           next({ name: MenuEnum.Login });
         }

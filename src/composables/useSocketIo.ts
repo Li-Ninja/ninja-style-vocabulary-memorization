@@ -21,7 +21,15 @@ export function bootSocketIo(url: string): Promise<SocketEventEnum> {
 
     socketIo.on(SocketEventEnum.Connect, () => {
       // socket.io connected
-      resolve(SocketEventEnum.Connect);
+    });
+
+    socketIo.on('check-connection', (res: { isSuccess: boolean }) => {
+      if (res.isSuccess) {
+        resolve(SocketEventEnum.Connect);
+      } else {
+        socketIo?.disconnect();
+        resolve(SocketEventEnum.Disconnect);
+      }
     });
 
     socketIo.on(SocketEventEnum.ConnectError, () => {

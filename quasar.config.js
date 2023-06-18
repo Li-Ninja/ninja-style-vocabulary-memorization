@@ -223,7 +223,7 @@ module.exports = configure(ctx => ({
     builder: {
       // https://www.electron.build/configuration/configuration
 
-      appId: 'ninja_style_vocabulary_memorization',
+      appId: 'ninja-style-vocabulary-memorization',
     },
 
     // "chain" is a webpack-chain object https://github.com/neutrinojs/webpack-chain

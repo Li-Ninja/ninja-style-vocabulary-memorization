@@ -41,10 +41,9 @@ onBeforeUnmount(() => {
   <div class="column top text-capitalize text-h6">
     <div class="col-12 row justify-center q-mb-md">
       <q-img
-        src="ninjaccc.ico"
-        ratio="1"
-        sizes="32px"
-        width="72px"
+        src="ninja-style.png"
+        :ratio="16 / 9"
+        width="360px"
       />
     </div>
     <div class="col-12 text-center">

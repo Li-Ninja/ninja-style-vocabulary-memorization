@@ -50,7 +50,7 @@ async function login() {
         />
       </div>
       <h1 class="col-12 text-center text-h5">
-        {{ $t('ninjutsuMemorizeVocabulary') }}
+        {{ $t('ninjaStyleVocabularyMemorization') }}
       </h1>
       <h2 class="col-12 text-center text-h6">
         {{ $t('MenuEnum.Login') }}

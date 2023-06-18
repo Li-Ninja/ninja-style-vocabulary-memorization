@@ -1,4 +1,4 @@
-# Ninjutsu Memorize Vocabulary
+# Ninja-style Vocabulary Memorization
 
 The genesis of this project was to address the issue of easily forgetting Japanese vocabulary.
 

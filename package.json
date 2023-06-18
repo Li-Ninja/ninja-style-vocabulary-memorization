@@ -1,8 +1,8 @@
 {
-  "name": "ninjutsu_memorize_vocabulary",
+  "name": "ninja_style_vocabulary_memorization",
   "version": "0.0.9-5",
   "description": "memorize vocabulary",
-  "productName": "Ninjutsu Memorize Vocabulary",
+  "productName": "Ninja-style Vocabulary Memorization",
   "author": "Ninja <lininja.tw@gmail.com>",
   "private": true,
   "scripts": {

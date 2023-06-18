@@ -48,7 +48,7 @@ onBeforeUnmount(() => {
       />
     </div>
     <div class="col-12 text-center">
-      {{ $t('ninjutsuMemorizeVocabulary') }}
+      {{ $t('ninjaStyleVocabularyMemorization') }}
     </div>
     <div class="col-12 text-center">
       {{ $t('MenuEnum.Home') }}

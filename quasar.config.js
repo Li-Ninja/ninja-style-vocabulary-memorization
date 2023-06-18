@@ -156,8 +156,8 @@ module.exports = configure(ctx => ({
     // chainWebpackCustomSW (/* chain */) {},
 
     manifest: {
-      name: 'Ninjutsu Memorize Vocabulary',
-      short_name: 'Ninjutsu Memorize Vocabulary',
+      name: 'Ninja-style Vocabulary Memorization',
+      short_name: 'Ninja-style Vocabulary Memorization',
       description: '',
       display: 'standalone',
       orientation: 'portrait',
@@ -223,7 +223,7 @@ module.exports = configure(ctx => ({
     builder: {
       // https://www.electron.build/configuration/configuration
 
-      appId: 'ninjutsu_memorize_vocabulary',
+      appId: 'ninja_style_vocabulary_memorization',
     },
 
     // "chain" is a webpack-chain object https://github.com/neutrinojs/webpack-chain

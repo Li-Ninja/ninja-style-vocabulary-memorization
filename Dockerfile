@@ -1,10 +1,9 @@
-FROM node:16.10.0-slim
-
+FROM node:16.10.0-slim as builder
 WORKDIR /app
 # also can use .dockerignore filter didn't use files
 COPY dist/spa .
-RUN npm install -g http-server
 
+FROM nginx
+COPY --from=builder /app /usr/share/nginx/html
 EXPOSE 8080
-
-CMD ["http-server"]
+CMD ["nginx", "-g", "daemon off;"]

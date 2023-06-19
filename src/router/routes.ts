@@ -30,7 +30,7 @@ const routes: RouteRecordRaw[] = [
     },
     children: [
       {
-        path: convertFromCamelToKebab(MenuEnum.Home),
+        path: '',
         name: MenuEnum.Home,
         component: () => import('pages/Home.vue'),
       },
